@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/organisations"
+        android:title="Organisations"
+        android:icon="@drawable/icon_organisation"/>
+    <item android:id="@+id/elections"
+        android:title="Elections"
+        android:icon="@drawable/icon_election"/>
+    <item android:id="@+id/help"
+        android:title="Help"
+        android:icon="@drawable/icon_help"/>
+    <item android:id="@+id/settings"
+        android:title="Settings"
+        android:icon="@drawable/icon_setting"/>
+
+</menu>
