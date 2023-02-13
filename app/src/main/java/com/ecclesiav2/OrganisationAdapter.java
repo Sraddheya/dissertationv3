@@ -14,53 +14,13 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-//public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapter.ViewHolder>{
-//
-//    Context context;
-//    ArrayList<Organisation> organisations;
-//    public OrganisationAdapter(Context context, ArrayList<Organisation> organisations) {
-//        this.context = context;
-//        this.organisations = organisations;
-//    }
-//
-//    @NonNull
-//    @Override
-//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_organisation, parent, false);
-//        return new ViewHolder(view);
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        Organisation organisation = organisations.get(position);
-//        holder.orgName.setText(organisation.getName());
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return organisations.size();
-//    }
-//
-//    public static class ViewHolder extends RecyclerView.ViewHolder {
-//
-//        private TextView orgName;
-//        private RelativeLayout parent;
-//
-//
-//        public ViewHolder(@NonNull View itemView) {
-//            super(itemView);
-//            orgName = itemView.findViewById(R.id.orgName);
-//            parent = itemView.findViewById(R.id.parent);
-//        }
-//    }
-//}
-
 public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapter.ViewHolder>{
     private Context context;
     private ArrayList<Organisation> organisations = new ArrayList<>();
-
-    public OrganisationAdapter(Context context){
+    private RecyclerViewClickListener listener;
+    public OrganisationAdapter(Context context, RecyclerViewClickListener listener){
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -82,17 +42,16 @@ public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapte
         return organisations.size();
     }
 
-    //USE notifyDataSetChanged() IF DATASET CHANGED WHEN PASSING FROM WEB SERVER
     public void setOrganisations(ArrayList<Organisation> organisations) {
         this.organisations = organisations;
-        notifyDataSetChanged();
+        notifyDataSetChanged();//Get any data updates
     }
 
     public interface RecyclerViewClickListener{
         void onCLick(View v, int position);
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView organisationName;
         private RelativeLayout parent;
@@ -101,6 +60,12 @@ public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapte
             super(itemView);
             organisationName = itemView.findViewById(R.id.OrganisationName);
             parent = itemView.findViewById(R.id.parent);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            listener.onCLick(view, getAdapterPosition());
         }
     }
 }

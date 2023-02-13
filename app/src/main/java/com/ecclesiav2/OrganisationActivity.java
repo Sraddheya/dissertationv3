@@ -12,6 +12,8 @@ public class OrganisationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organisation);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //CONTENT------------------------------------------------
         //Intent intent = getIntent();
         String name = getIntent().getStringExtra("NAME");
