@@ -22,12 +22,14 @@ import java.util.ArrayList;
 public class OrganisationFragment extends Fragment{
    private RecyclerView orgRecView;
     private OrganisationAdapter.RecyclerViewClickListener listener;
-    private OrganisationData organisationData = new OrganisationData();
+    private ArrayList<Organisation> registeredOrganisations = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_organisation, container, false);
+        //FOR TESTING
+        settupRegisteredOrganisations();
 
         Button qrButton = view.findViewById(R.id.qrButton);
         qrButton.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +42,11 @@ public class OrganisationFragment extends Fragment{
         return view;
     }
 
+    private void settupRegisteredOrganisations() {
+        registeredOrganisations.add(new Organisation("0", "org0", "hello world"));
+        registeredOrganisations.add(new Organisation("2", "org2", "hello world"));
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,7 +56,7 @@ public class OrganisationFragment extends Fragment{
         orgRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         setOnClickListener();
         OrganisationAdapter adapter = new OrganisationAdapter(getContext(), listener);
-        adapter.setOrganisations(organisationData.getRegisteredOrganisations());
+        adapter.setOrganisations(registeredOrganisations);
         orgRecView.setAdapter(adapter);
     }
 
@@ -59,8 +66,8 @@ public class OrganisationFragment extends Fragment{
             @Override
             public void onCLick(View v, int position) {
                 Intent intent = new Intent(getContext(), OrganisationActivity.class);
-                intent.putExtra("NAME", organisationData.getRegisteredOrganisations().get(position).getName());
-                intent.putExtra("DESCRIPTION", organisationData.getRegisteredOrganisations().get(position).getDescription());
+                intent.putExtra("NAME", registeredOrganisations.get(position).getName());
+                intent.putExtra("DESCRIPTION", registeredOrganisations.get(position).getDescription());
                 startActivity(intent);
             }
         };
