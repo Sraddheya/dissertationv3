@@ -2,10 +2,13 @@ package com.ecclesiav2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class OrganisationActivity extends AppCompatActivity {
+import java.io.Serializable;
+
+public class OrganisationActivity extends AppCompatActivity implements Serializable {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
