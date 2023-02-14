@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class OrganisationFragment extends Fragment{
@@ -45,6 +46,12 @@ public class OrganisationFragment extends Fragment{
     private void settupRegisteredOrganisations() {
         registeredOrganisations.add(new Organisation("0", "org0", "hello world"));
         registeredOrganisations.add(new Organisation("2", "org2", "hello world"));
+
+        LocalDateTime finishedTime = LocalDateTime.of(2023, 02, 14, 17, 38, 40);
+
+        if (LocalDateTime.now().isAfter(finishedTime)){
+            registeredOrganisations.get(0).setDescription("hellooooo");
+        }
     }
 
     @Override
