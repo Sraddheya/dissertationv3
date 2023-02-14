@@ -17,21 +17,22 @@ import com.budiyev.android.codescanner.DecodeCallback;
 import com.google.zxing.Result;
 
 public class OrganisationScanner extends AppCompatActivity {
-    private CodeScanner mCodeScanner;
+    private CodeScanner codeScanner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organisation_scanner);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupPermissions();
         scanCode();
     }
 
     private void scanCode() {
         CodeScannerView scannerView = findViewById(R.id.scanner_view);
-        mCodeScanner = new CodeScanner(this, scannerView);
-        mCodeScanner.setDecodeCallback(new DecodeCallback() {
+        codeScanner = new CodeScanner(this, scannerView);
+        codeScanner.setDecodeCallback(new DecodeCallback() {
             @Override
             public void onDecoded(@NonNull final Result result) {
                 runOnUiThread(new Runnable() {
@@ -45,7 +46,7 @@ public class OrganisationScanner extends AppCompatActivity {
         scannerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCodeScanner.startPreview();
+                codeScanner.startPreview();
             }
         });
     }
@@ -74,12 +75,12 @@ public class OrganisationScanner extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mCodeScanner.startPreview();
+        codeScanner.startPreview();
     }
 
     @Override
     protected void onPause() {
-        mCodeScanner.releaseResources();
+        codeScanner.releaseResources();
         super.onPause();
     }
 }
