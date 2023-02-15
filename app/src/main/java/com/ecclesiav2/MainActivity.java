@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -25,23 +24,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        settupRegisteredOrganisations();
+        setRegisteredOrganisations();
+
+        if (getIntent().hasExtra("Organisation")){
+            Organisation organisation = getIntent().getParcelableExtra("Organisation");
+            registeredOrganisations.add(organisation);
+            setOrganisationsFragment();
+        }
+
+        setOrganisationsFragment();
 
         //BOTTOM NAV BAR-----------------------------------------
         bottomNavigationView = findViewById(R.id.bottom_nav);
-        Bundle b=new Bundle();
-        b.putParcelableArrayList("DATA", registeredOrganisations);
-        organisationFragment.setArguments(b);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, organisationFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.organisations:
-                        Bundle b=new Bundle();
-                        b.putParcelableArrayList("DATA", registeredOrganisations);
-                        organisationFragment.setArguments(b);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, organisationFragment).commit();
+                        setOrganisationsFragment();
                         return true;
                     case R.id.elections:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, electionFragment).commit();
@@ -52,7 +52,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void settupRegisteredOrganisations() {
+    private void setOrganisationsFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("DATA", registeredOrganisations);
+        organisationFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, organisationFragment).commit();
+    }
+
+
+    private void setRegisteredOrganisations() {
         registeredOrganisations.add(new Organisation("0", "org0", "hello world"));
         registeredOrganisations.add(new Organisation("2", "org2", "hello world"));
 

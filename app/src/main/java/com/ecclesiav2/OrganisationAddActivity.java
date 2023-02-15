@@ -20,7 +20,7 @@ public class OrganisationAddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_organisation_add);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        setupOrganisations();
+        setOrganisations();
 
         //CONTENT------------------------------------------------
         //Intent intent = getIntent();
@@ -34,17 +34,19 @@ public class OrganisationAddActivity extends AppCompatActivity {
 
         //BUTTON-------------------------------------------------
         Button addBtn = findViewById(R.id.addBtn);
+
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrganisationAddActivity.this, MainActivity.class);
+                intent.putExtra("Organisation", allOrganisations.get(index));
                 startActivity(intent);
             }
         });
         Button cancelBtn = findViewById(R.id.cancelBtn);
     }
 
-    private void setupOrganisations() {
+    private void setOrganisations() {
         String default_org_descriptions = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis eros turpis, ut eleifend arcu pharetra quis. Integer dapibus pulvinar finibus. Nullam euismod tellus ac lectus laoreet, sed scelerisque mauris egestas. Vestibulum nec ex et lorem pulvinar fringilla. Nam eleifend, ligula non accumsan elementum, dui est elementum lacus, nec hendrerit odio nisi vel eros. Curabitur eget ipsum dignissim, faucibus libero at, congue massa. Nam pulvinar, tellus quis finibus venenatis, eros eros viverra dolor, ac consectetur erat lorem nec ante. Donec dapibus felis magna, eget consequat massa dignissim eget. Aenean quis nunc consectetur, rutrum mi in, maximus enim. Vivamus et magna non mi ultricies sollicitudin sit amet ut lorem.";
 
         allOrganisations.add(new Organisation("0", "org0", default_org_descriptions));

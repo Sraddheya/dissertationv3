@@ -41,7 +41,6 @@ public class OrganisationScanner extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //Toast.makeText(OrganisationScanner.this, result.getText(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(OrganisationScanner.this, OrganisationAddActivity.class);
                         intent.putExtra("INDEX", Integer.parseInt(result.getText()));
                         startActivity(intent);
