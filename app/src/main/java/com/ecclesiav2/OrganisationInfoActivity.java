@@ -2,19 +2,15 @@ package com.ecclesiav2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
-public class OrganisationActivity extends AppCompatActivity{
+public class OrganisationInfoActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_organisation);
+        setContentView(R.layout.activity_organisation_info);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

@@ -2,7 +2,10 @@ package com.ecclesiav2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,7 +17,7 @@ public class OrganisationAddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_organisation);
+        setContentView(R.layout.activity_organisation_add);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupOrganisations();
@@ -28,6 +31,17 @@ public class OrganisationAddActivity extends AppCompatActivity {
 
         nameTextView.setText(allOrganisations.get(index).getName());
         descriptionTextView.setText(allOrganisations.get(index).getDescription());
+
+        //BUTTON-------------------------------------------------
+        Button addBtn = findViewById(R.id.addBtn);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrganisationAddActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button cancelBtn = findViewById(R.id.cancelBtn);
     }
 
     private void setupOrganisations() {

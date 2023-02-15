@@ -9,28 +9,25 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class OrganisationFragment extends Fragment{
    private RecyclerView orgRecView;
     private OrganisationAdapter.RecyclerViewClickListener listener;
-    private ArrayList<Organisation> registeredOrganisations = new ArrayList<>();
+    private ArrayList<Organisation> registeredOrganisations;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        registeredOrganisations = getArguments().getParcelableArrayList("DATA");
         View view = inflater.inflate(R.layout.fragment_organisation, container, false);
         //FOR TESTING
-        settupRegisteredOrganisations();
+        //settupRegisteredOrganisations();
 
         Button qrButton = view.findViewById(R.id.qrButton);
         qrButton.setOnClickListener(new View.OnClickListener() {
@@ -43,16 +40,16 @@ public class OrganisationFragment extends Fragment{
         return view;
     }
 
-    private void settupRegisteredOrganisations() {
-        registeredOrganisations.add(new Organisation("0", "org0", "hello world"));
-        registeredOrganisations.add(new Organisation("2", "org2", "hello world"));
-
-        LocalDateTime finishedTime = LocalDateTime.of(2023, 02, 14, 17, 38, 40);
-
-        if (LocalDateTime.now().isAfter(finishedTime)){
-            registeredOrganisations.get(0).setDescription("hellooooo");
-        }
-    }
+//    private void settupRegisteredOrganisations() {
+//        registeredOrganisations.add(new Organisation("0", "org0", "hello world"));
+//        registeredOrganisations.add(new Organisation("2", "org2", "hello world"));
+//
+//        LocalDateTime finishedTime = LocalDateTime.of(2023, 02, 15, 9, 24);
+//
+//        if (LocalDateTime.now().isAfter(finishedTime)){
+//            registeredOrganisations.get(0).setDescription("hellooooo");
+//        }
+//    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -72,7 +69,7 @@ public class OrganisationFragment extends Fragment{
         listener = new OrganisationAdapter.RecyclerViewClickListener() {
             @Override
             public void onCLick(View v, int position) {
-                Intent intent = new Intent(getContext(), OrganisationActivity.class);
+                Intent intent = new Intent(getContext(), OrganisationInfoActivity.class);
                 intent.putExtra("NAME", registeredOrganisations.get(position).getName());
                 intent.putExtra("DESCRIPTION", registeredOrganisations.get(position).getDescription());
                 startActivity(intent);
