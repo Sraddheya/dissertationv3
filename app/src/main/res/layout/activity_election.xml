@@ -6,12 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ElectionActivity">
 
+    <Button
+        android:id="@+id/qrButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ElecRecView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item_election"
         android:layout_above="@id/bottom_nav"
+        android:layout_below="@id/qrButton"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
