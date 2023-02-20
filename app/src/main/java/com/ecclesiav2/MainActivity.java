@@ -3,6 +3,7 @@ package com.ecclesiav2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -50,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
                         loadOrganisationsFragment();
                         return true;
                     case R.id.elections:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, electionFragment).commit();
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.container, electionFragment).commit();
+                        Intent intent = new Intent(MainActivity.this, ElectionActivity.class);
+                        startActivity(intent);
                         return true;
                 }
                 return false;
