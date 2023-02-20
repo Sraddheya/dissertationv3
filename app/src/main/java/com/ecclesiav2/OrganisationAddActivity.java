@@ -21,12 +21,14 @@ public class OrganisationAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organisation_add);
 
+        //Back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //Init all Organisation
         setOrganisations();
 
-        //CONTENT------------------------------------------------
-        //Intent intent = getIntent();
-        int index = getIntent().getIntExtra("INDEX", 0);
+        //Display content
+        Intent intent = getIntent();
+        int index = intent.getIntExtra("INDEX", 0);
 
         TextView nameTextView = findViewById(R.id.orgName);
         TextView descriptionTextView = findViewById(R.id.orgDescription);
@@ -34,9 +36,8 @@ public class OrganisationAddActivity extends AppCompatActivity {
         nameTextView.setText(allOrganisations.get(index).getName());
         descriptionTextView.setText(allOrganisations.get(index).getDescription());
 
-        //BUTTON-------------------------------------------------
+        //Add button
         Button addBtn = findViewById(R.id.addBtn);
-
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +46,17 @@ public class OrganisationAddActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //Cancel button
         Button cancelBtn = findViewById(R.id.cancelBtn);
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(OrganisationAddActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setOrganisations() {

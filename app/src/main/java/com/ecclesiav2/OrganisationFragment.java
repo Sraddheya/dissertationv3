@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +28,8 @@ public class OrganisationFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_organisation, container, false);
 
+        registeredOrganisations = getArguments().getParcelableArrayList("DATA");
+
         //QRScanner button
         Button qrButton = view.findViewById(R.id.qrButton);
         qrButton.setOnClickListener(new View.OnClickListener() {
@@ -41,11 +44,14 @@ public class OrganisationFragment extends Fragment{
         orgRecView = view.findViewById(R.id.OrgRecView);
         orgRecView.setLayoutManager(new LinearLayoutManager(getContext()));
         setOnClickListener();
+        setAdapter();
+        return view;
+    }
+
+    private void setAdapter() {
         OrganisationAdapter adapter = new OrganisationAdapter(getContext(), listener);
-        registeredOrganisations = getArguments().getParcelableArrayList("DATA");
         adapter.setOrganisations(registeredOrganisations);
         orgRecView.setAdapter(adapter);
-        return view;
     }
 
 
