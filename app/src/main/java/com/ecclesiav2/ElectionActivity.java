@@ -112,7 +112,15 @@ public class ElectionActivity extends AppCompatActivity {
     }
 
     private void setElections() {
-        registeredElections.add(new Election("0", "el0", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
-        registeredElections.add(new Election("1", "el1", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
+        ArrayList<String> options = new ArrayList<>();
+        options.add("op1");
+        options.add("op2");
+
+        ArrayList<String> optionDescriptions = new ArrayList<>();
+        optionDescriptions.add("This is the description");
+        optionDescriptions.add("This is the description");
+
+        registeredElections.add(new Election("0", "el0", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
+        registeredElections.add(new Election("1", "el1", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
     }
 }

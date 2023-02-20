@@ -5,6 +5,8 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import java.util.ArrayList;
+
 public class Election implements Parcelable {
     private String id;
     private String title;
@@ -12,14 +14,20 @@ public class Election implements Parcelable {
     private String startCast;
     private String endCast;
     private String status;
+    private String description;
+    private ArrayList<String> options;
+    private ArrayList<String> optionsDescriptions;
 
-    public Election(String id, String title, String orgId, String startCast, String endCast, String status) {
+    public Election(String id, String title, String orgId, String startCast, String endCast, String status, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
         this.id = id;
         this.title = title;
         this.orgId = orgId;
         this.startCast = startCast;
         this.endCast = endCast;
         this.status = status;
+        this.description = description;
+        this.options = options;
+        this.optionsDescriptions = optionsDescriptions;
     }
 
     protected Election(Parcel in) {
@@ -29,6 +37,9 @@ public class Election implements Parcelable {
         startCast = in.readString();
         endCast = in.readString();
         status = in.readString();
+        description = in.readString();
+        options = in.createStringArrayList();
+        optionsDescriptions = in.createStringArrayList();
     }
 
     public static final Creator<Election> CREATOR = new Creator<Election>() {
@@ -97,9 +108,12 @@ public class Election implements Parcelable {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", orgId='" + orgId + '\'' +
-                ", startCast=" + startCast +
-                ", endCast=" + endCast +
+                ", startCast='" + startCast + '\'' +
+                ", endCast='" + endCast + '\'' +
                 ", status='" + status + '\'' +
+                ", description='" + description + '\'' +
+                ", options=" + options +
+                ", optionsDescriptions=" + optionsDescriptions +
                 '}';
     }
 
@@ -116,5 +130,8 @@ public class Election implements Parcelable {
         parcel.writeString(startCast);
         parcel.writeString(endCast);
         parcel.writeString(status);
+        parcel.writeString(description);
+        parcel.writeStringList(options);
+        parcel.writeStringList(optionsDescriptions);
     }
 }

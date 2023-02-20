@@ -54,10 +54,17 @@ public class ElectionAddActivity extends AppCompatActivity {
     }
 
     private void setElections() {
-        allElections.add(new Election("0", "el0", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
-        allElections.add(new Election("1", "el1", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
-        allElections.add(new Election("2", "el2", "1", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
-        allElections.add(new Election("3", "el3", "1", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
-        allElections.add(new Election("4", "el4", "2", "2016-03-04 11:30", "2016-03-04 11:30", "Joined"));
+        ArrayList<String> options = new ArrayList<>();
+        options.add("op1");
+        options.add("op2");
+
+        ArrayList<String> optionDescriptions = new ArrayList<>();
+        optionDescriptions.add("This is the description");
+        optionDescriptions.add("This is the description");
+
+        allElections.add(new Election("0", "el0", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
+        allElections.add(new Election("1", "el1", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
+        allElections.add(new Election("2", "el2", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
+        allElections.add(new Election("3", "el3", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Hello description", options, optionDescriptions));
     }
 }
