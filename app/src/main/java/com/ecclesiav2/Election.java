@@ -97,15 +97,16 @@ public class Election implements Parcelable {
 
     public String getStatus() {
         if (this.id.equals("0")){
-            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
-                status = "Voting started";
-            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 46))){
-                status = "Vote casted";
-            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 48))){
-                status = "Vote recorded true";
-            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
-                status = "Results calculated";
-            }
+            status = "Joined";
+//            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
+//                status = "Voting started";
+//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 46))){
+//                status = "Vote casted";
+//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 48))){
+//                status = "Vote recorded true";
+//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
+//                status = "Results calculated";
+//            }
         }
         return status;
     }

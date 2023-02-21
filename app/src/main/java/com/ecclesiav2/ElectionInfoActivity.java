@@ -3,8 +3,12 @@ package com.ecclesiav2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.sql.Statement;
 
@@ -36,12 +40,25 @@ public class ElectionInfoActivity extends AppCompatActivity {
         titleTextView.setText(title);
         statusTextView.setText(status);
 
+        //Begin voting button
+        Button startVoteBtn = findViewById(R.id.startVoteBtn);
+
         switch (election.getStatus()){
             case "Joined":
                 Bundle bundle = new Bundle();
                 bundle.putString("startTime", election.getStartCast());
                 statusOne.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusOne).commit();
+
+                //Show disabled button
+                startVoteBtn.setBackgroundColor(Color.GRAY);
+                startVoteBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(ElectionInfoActivity.this, "Voting has not begin yet", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 break;
             case "Voting started":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusTwo).commit();
