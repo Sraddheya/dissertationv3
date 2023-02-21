@@ -18,6 +18,7 @@ public class Election implements Parcelable {
     private String description;
     private ArrayList<String> options;
     private ArrayList<String> optionsDescriptions;
+    private int selectedIndex;
 
     public Election(String id, String title, String orgId, String startCast, String endCast, String status, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
         this.id = id;
@@ -29,6 +30,7 @@ public class Election implements Parcelable {
         this.description = description;
         this.options = options;
         this.optionsDescriptions = optionsDescriptions;
+        selectedIndex = -1;
     }
 
     protected Election(Parcel in) {
@@ -41,6 +43,7 @@ public class Election implements Parcelable {
         description = in.readString();
         options = in.createStringArrayList();
         optionsDescriptions = in.createStringArrayList();
+        selectedIndex = in.readInt();
     }
 
     public static final Creator<Election> CREATOR = new Creator<Election>() {
@@ -95,9 +98,41 @@ public class Election implements Parcelable {
         this.endCast = endCast;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ArrayList<String> getOptions() {
+        return options;
+    }
+
+    public void setOptions(ArrayList<String> options) {
+        this.options = options;
+    }
+
+    public ArrayList<String> getOptionsDescriptions() {
+        return optionsDescriptions;
+    }
+
+    public void setOptionsDescriptions(ArrayList<String> optionsDescriptions) {
+        this.optionsDescriptions = optionsDescriptions;
+    }
+
+    public int getSelectedIndex() {
+        return selectedIndex;
+    }
+
+    public void setSelectedIndex(int selectedIndex) {
+        this.selectedIndex = selectedIndex;
+    }
+
     public String getStatus() {
         if (this.id.equals("0")){
-            status = "Joined";
+            status = "Voting started";
 //            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
 //                status = "Voting started";
 //            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 46))){
@@ -127,6 +162,7 @@ public class Election implements Parcelable {
                 ", description='" + description + '\'' +
                 ", options=" + options +
                 ", optionsDescriptions=" + optionsDescriptions +
+                ", selectedIndex=" + selectedIndex +
                 '}';
     }
 
@@ -146,5 +182,6 @@ public class Election implements Parcelable {
         parcel.writeString(description);
         parcel.writeStringList(options);
         parcel.writeStringList(optionsDescriptions);
+        parcel.writeInt(selectedIndex);
     }
 }

@@ -62,18 +62,32 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 break;
             case "Voting started":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusTwo).commit();
+
+                //Show enabled button
+                startVoteBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(ElectionInfoActivity.this, VoteSelection.class);
+                        intent.putExtra("elec", election);
+                        startActivity(intent);
+                    }
+                });
                 break;
             case "Vote casted":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusThree).commit();
+                startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded true":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFourTrue).commit();
+                startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded false":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFourFalse).commit();
+                startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFive).commit();
+                startVoteBtn.setVisibility(View.GONE);
                 break;
         }
     }
