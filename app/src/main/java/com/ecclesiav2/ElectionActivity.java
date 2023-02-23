@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,23 @@ public class ElectionActivity extends AppCompatActivity {
         if (getIntent().hasExtra("Election")){
             Election election = getIntent().getParcelableExtra("Election");
             registeredElections.add(election);
+            saveElections();
+        }
+
+        //Update to selected vote
+        if (getIntent().hasExtra("selectedIndex")){
+            Log.d("yes", "true");
+            int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
+            String elecID = getIntent().getStringExtra("elecID");
+            for (Election e : registeredElections){
+                if (e.getId().equals(elecID)){
+                    e.setSelectedIndex(selectedIndex);
+                    e.setStatus("Vote casted");
+                    Log.d("selectedIndex4", Integer.toString(selectedIndex));
+                    Log.d("elecId4", elecID);
+                    Log.d("status4", e.getStatus());
+                }
+            }
             saveElections();
         }
 

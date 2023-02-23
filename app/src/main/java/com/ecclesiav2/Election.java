@@ -131,8 +131,8 @@ public class Election implements Parcelable {
     }
 
     public String getStatus() {
-        if (this.id.equals("0")){
-            status = "Voting started";
+        //if (this.id.equals("0")){
+            //status = "Voting started";
 //            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
 //                status = "Voting started";
 //            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 46))){
@@ -142,7 +142,7 @@ public class Election implements Parcelable {
 //            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
 //                status = "Results calculated";
 //            }
-        }
+//        }
         return status;
     }
 

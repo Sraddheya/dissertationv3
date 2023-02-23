@@ -65,7 +65,8 @@ public class VoteSelection extends AppCompatActivity {
 
         mView.findViewById(R.id.castBtn).setOnClickListener(v -> {
             Intent intent = new Intent(VoteSelection.this, VoteCasted.class);
-            intent.putExtra("cast", selectedIndex);
+            intent.putExtra("selectedIndex", selectedIndex);
+            intent.putExtra("elecID", election.getId());
             startActivity(intent);
         });
 

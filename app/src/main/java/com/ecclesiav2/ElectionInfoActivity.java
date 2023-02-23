@@ -74,6 +74,9 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 });
                 break;
             case "Vote casted":
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("selectedIndex", election.getSelectedIndex());
+                statusThree.setArguments(bundle2);
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, statusThree).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
