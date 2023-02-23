@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -23,7 +22,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ElectionActivity extends AppCompatActivity {
-    private BottomNavigationView bottomNavigationView;
+    //private BottomNavigationView bottomNavigationView;
     private ArrayList<Election> registeredElections;
     private RecyclerView elecRecView;
     private ElectionAdapter.RecyclerViewClickListener elecListener;
@@ -32,10 +31,10 @@ public class ElectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_election);
 
-        //setElections();
+        //Load current registered elections
         loadElections();
 
-        //Adding organisation form OrganisationAddActivity
+        //Adding election from ElectionAddActivity
         if (getIntent().hasExtra("Election")){
             Election election = getIntent().getParcelableExtra("Election");
             registeredElections.add(election);
@@ -44,16 +43,12 @@ public class ElectionActivity extends AppCompatActivity {
 
         //Update to selected vote
         if (getIntent().hasExtra("selectedIndex")){
-            Log.d("yes", "true");
             int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
             String elecID = getIntent().getStringExtra("elecID");
             for (Election e : registeredElections){
-                if (e.getId().equals(elecID)){
+                if (e.getElecId().equals(elecID)){
                     e.setSelectedIndex(selectedIndex);
                     e.setStatus("Vote casted");
-                    Log.d("selectedIndex4", Integer.toString(selectedIndex));
-                    Log.d("elecId4", elecID);
-                    Log.d("status4", e.getStatus());
                 }
             }
             saveElections();
@@ -75,9 +70,9 @@ public class ElectionActivity extends AppCompatActivity {
             }
         });
 
-        //Bottom nav bar
-        bottomNavigationView = findViewById(R.id.bottom_nav);
-        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        //Bottom navigation view
+        BottomNavigationView navView = findViewById(R.id.bottom_nav);
+        navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){

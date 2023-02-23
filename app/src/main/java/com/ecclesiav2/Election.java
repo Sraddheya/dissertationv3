@@ -5,11 +5,10 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Election implements Parcelable {
-    private String id;
+    private String elecId;
     private String title;
     private String orgId;
     private String startCast;
@@ -20,8 +19,8 @@ public class Election implements Parcelable {
     private ArrayList<String> optionsDescriptions;
     private int selectedIndex;
 
-    public Election(String id, String title, String orgId, String startCast, String endCast, String status, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
-        this.id = id;
+    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
+        this.elecId = elecId;
         this.title = title;
         this.orgId = orgId;
         this.startCast = startCast;
@@ -34,7 +33,7 @@ public class Election implements Parcelable {
     }
 
     protected Election(Parcel in) {
-        id = in.readString();
+        elecId = in.readString();
         title = in.readString();
         orgId = in.readString();
         startCast = in.readString();
@@ -58,12 +57,12 @@ public class Election implements Parcelable {
         }
     };
 
-    public String getId() {
-        return id;
+    public String getElecId() {
+        return elecId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setElecId(String elecId) {
+        this.elecId = elecId;
     }
 
     public String getTitle() {
@@ -153,7 +152,7 @@ public class Election implements Parcelable {
     @Override
     public String toString() {
         return "Election{" +
-                "id='" + id + '\'' +
+                "elecId='" + elecId + '\'' +
                 ", title='" + title + '\'' +
                 ", orgId='" + orgId + '\'' +
                 ", startCast='" + startCast + '\'' +
@@ -173,7 +172,7 @@ public class Election implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(id);
+        parcel.writeString(elecId);
         parcel.writeString(title);
         parcel.writeString(orgId);
         parcel.writeString(startCast);

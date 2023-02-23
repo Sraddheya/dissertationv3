@@ -18,6 +18,9 @@ public class ElectionAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_election_add);
 
+        //Back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Init all Organisation
         setElections();
 

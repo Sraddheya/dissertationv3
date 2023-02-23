@@ -69,5 +69,4 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
         }
     }
 
-
 }

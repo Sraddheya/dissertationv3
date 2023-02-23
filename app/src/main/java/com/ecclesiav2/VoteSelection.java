@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -23,6 +22,9 @@ public class VoteSelection extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_selection);
+
+        //Back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //CONTENT
         election = getIntent().getExtras().getParcelable("elec");
@@ -66,7 +68,7 @@ public class VoteSelection extends AppCompatActivity {
         mView.findViewById(R.id.castBtn).setOnClickListener(v -> {
             Intent intent = new Intent(VoteSelection.this, VoteCasted.class);
             intent.putExtra("selectedIndex", selectedIndex);
-            intent.putExtra("elecID", election.getId());
+            intent.putExtra("elecID", election.getElecId());
             startActivity(intent);
         });
 

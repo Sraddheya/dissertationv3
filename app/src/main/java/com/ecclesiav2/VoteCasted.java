@@ -16,6 +16,9 @@ public class VoteCasted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_casted);
 
+        //Back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
         String elecID = getIntent().getStringExtra("elecID");
 
