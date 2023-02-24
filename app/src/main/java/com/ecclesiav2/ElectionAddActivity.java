@@ -33,8 +33,8 @@ public class ElectionAddActivity extends AppCompatActivity {
         setContent();
 
         //Add button
-        Button addBtn = findViewById(R.id.joinBtn);
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        Button joinBtn = findViewById(R.id.joinBtn);
+        joinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ElectionAddActivity.this, ElectionActivity.class);

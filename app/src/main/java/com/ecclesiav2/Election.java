@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Election implements Parcelable {
@@ -133,18 +134,23 @@ public class Election implements Parcelable {
     }
 
     public String getStatus() {
-        //if (this.id.equals("0")){
-            //status = "Voting started";
-//            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
-//                status = "Voting started";
-//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 46))){
-//                status = "Vote casted";
-//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 48))){
-//                status = "Vote recorded true";
-//            } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
-//                status = "Results calculated";
+        if (this.elecId.equals("4")){
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
+                if (this.selectedIndex > -1){
+                    status = "Vote casted";
+                } else {
+                    status = "Voting started";
+                }
+            }
+
+//            if (this.selectedIndex > -1){
+//                if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 48))){
+//                    status = "Vote recorded true";
+//                } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
+//                    status = "Results calculated";
+//                }
 //            }
-//        }
+        }
         return status;
     }
 

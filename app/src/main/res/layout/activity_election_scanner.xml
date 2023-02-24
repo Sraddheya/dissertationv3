@@ -4,20 +4,10 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<com.budiyev.android.codescanner.CodeScannerView
-    android:id="@+id/scanner_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:maskColor="#66000000"/>
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maskColor="#66000000"/>
 
-<TextView
-    android:id="@+id/scanner_text"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/qr_scanner_text"
-    android:textSize="20dp"
-    android:textColor="@android:color/white"
-    android:paddingBottom="30dp"
-    android:layout_alignBottom="@+id/scanner_view"
-    android:layout_centerHorizontal="true"/>
 </FrameLayout>

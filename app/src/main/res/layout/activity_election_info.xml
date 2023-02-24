@@ -4,26 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
     tools:context=".ElectionInfoActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:text="Hello"
+        android:textSize="30sp"
+        android:textColor="@color/font"/>
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/lifeLineTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/title"/>
+        android:layout_below="@id/titleTxt"/>
+
+    <TextView
+        android:id="@+id/startCastTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lifeLineTxt"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/endCastTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startCastTxt"
+        android:paddingBottom="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <LinearLayout
+        android:id="@+id/statusInfoTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/endCastTxt">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Election status"
+            android:textSize="20sp"
+            android:textColor="@color/font"/>
+
+        <ImageButton
+            android:id="@+id/infoBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_info2"/>
+
+    </LinearLayout>
+
 
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/status" />
+        android:layout_below="@+id/statusInfoTxt" />
 
     <Button
         android:id="@+id/startVoteBtn"
