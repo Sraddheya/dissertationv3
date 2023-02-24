@@ -4,40 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
     tools:context=".ElectionAddActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:text="Hello"
+        android:textSize="30sp"
+        android:textColor="@color/font"/>
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/startCastTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/title"/>
+        android:layout_below="@id/titleTxt"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
 
-    <Button
-        android:id="@+id/addBtn"
-        android:text="Add"
+    <TextView
+        android:id="@+id/endCastTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/status"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_alignParentLeft="true"/>
+        android:layout_below="@id/startCastTxt"
+        android:paddingBottom="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/endCastTxt"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/descriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionTxt"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/segueTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionTxt"
+        android:paddingTop="20dp"
+        android:text="You can choose from the following options:"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/optionDescriptionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/segueTxt"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
+
+    <TextView
+        android:id="@+id/statusTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/optionDescriptionTxt"/>
 
     <Button
         android:id="@+id/cancelBtn"
         android:text="Cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/status"
+        android:layout_below="@id/statusTxt"
         android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_alignParentLeft="true"
+        android:backgroundTint="@color/no"/>
+
+    <Button
+        android:id="@+id/joinBtn"
+        android:text="Join"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statusTxt"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginRight="50dp"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:backgroundTint="@color/yes"/>
 
 
 </RelativeLayout>

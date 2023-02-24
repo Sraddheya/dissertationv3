@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class ElectionAddActivity extends AppCompatActivity {
+    int index;
     private ArrayList<Election> allElections = new ArrayList<>();
 
     @Override
@@ -26,16 +29,11 @@ public class ElectionAddActivity extends AppCompatActivity {
 
         //Display content
         Intent intent = getIntent();
-        int index = intent.getIntExtra("INDEX", 0);
-
-        TextView titleTextView = findViewById(R.id.title);
-        TextView statusTextView = findViewById(R.id.status);
-
-        titleTextView.setText(allElections.get(index).getTitle());
-        statusTextView.setText(allElections.get(index).getStatus());
+        index = intent.getIntExtra("INDEX", 0);
+        setContent();
 
         //Add button
-        Button addBtn = findViewById(R.id.addBtn);
+        Button addBtn = findViewById(R.id.joinBtn);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +52,22 @@ public class ElectionAddActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setContent() {
+        Election election = allElections.get(index);
+
+        TextView titleTxt = findViewById(R.id.titleTxt);
+        titleTxt.setText(election.getTitle());
+        TextView startCastTxt = findViewById(R.id.startCastTxt);
+        startCastTxt.setText(election.getStartCast());
+        TextView endCastTxt = findViewById(R.id.endCastTxt);
+        endCastTxt.setText(election.getEndCast());
+        //TextView questionTxt = findViewById(R.id.questionTxt);
+        TextView descriptionTxt = findViewById(R.id.descriptionTxt);
+        descriptionTxt.setText(election.getDescription());
+        TextView statusTxt = findViewById(R.id.statusTxt);
+        statusTxt.setText(election.getStatus());
     }
 
     private void setElections() {
