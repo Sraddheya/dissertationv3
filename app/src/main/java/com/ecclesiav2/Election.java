@@ -18,14 +18,16 @@ public class Election implements Parcelable {
     private ArrayList<String> options;
     private ArrayList<String> optionsDescriptions;
     private int selectedIndex;
+    private String question;
 
-    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
+    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
         this.elecId = elecId;
         this.title = title;
         this.orgId = orgId;
         this.startCast = startCast;
         this.endCast = endCast;
         this.status = status;
+        this.question = question;
         this.description = description;
         this.options = options;
         this.optionsDescriptions = optionsDescriptions;
@@ -39,6 +41,7 @@ public class Election implements Parcelable {
         startCast = in.readString();
         endCast = in.readString();
         status = in.readString();
+        question = in.readString();
         description = in.readString();
         options = in.createStringArrayList();
         optionsDescriptions = in.createStringArrayList();
@@ -149,6 +152,14 @@ public class Election implements Parcelable {
         this.status = status;
     }
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
     @Override
     public String toString() {
         return "Election{" +
@@ -158,6 +169,7 @@ public class Election implements Parcelable {
                 ", startCast='" + startCast + '\'' +
                 ", endCast='" + endCast + '\'' +
                 ", status='" + status + '\'' +
+                ", question='" + question + '\'' +
                 ", description='" + description + '\'' +
                 ", options=" + options +
                 ", optionsDescriptions=" + optionsDescriptions +
@@ -178,6 +190,7 @@ public class Election implements Parcelable {
         parcel.writeString(startCast);
         parcel.writeString(endCast);
         parcel.writeString(status);
+        parcel.writeString(question);
         parcel.writeString(description);
         parcel.writeStringList(options);
         parcel.writeStringList(optionsDescriptions);
