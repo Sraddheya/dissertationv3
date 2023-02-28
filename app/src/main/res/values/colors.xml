@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="font">#494848</color>
+    <color name="font_greyed">#A9A9A9</color>
     <color name="no">#F24E1E</color>
     <color name="yes">#4ECB71</color>
+    <color name="inactive">#6B7280</color>
 </resources>
