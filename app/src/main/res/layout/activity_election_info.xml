@@ -67,7 +67,6 @@
 
     </LinearLayout>
 
-
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -75,12 +74,56 @@
         android:layout_below="@+id/statusInfoTxt">
     </FrameLayout>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/container">
+
+        <RelativeLayout
+            android:id="@+id/card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/card_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Election information"
+                android:textSize="20sp"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/button_down"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icon_arrow_down"
+                android:layout_alignParentRight="true"/>
+
+            <RelativeLayout
+                android:id="@+id/details_layout"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/card_title">
+
+                <TextView
+                    android:id="@+id/card_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hello"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
     <Button
         android:id="@+id/startVoteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Begin Voting"
         android:layout_centerInParent="true"
-        android:layout_below="@id/container"/>
+        android:layout_below="@id/card_view"/>
 
 </RelativeLayout>

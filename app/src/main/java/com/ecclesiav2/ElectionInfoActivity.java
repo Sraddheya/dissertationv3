@@ -1,13 +1,17 @@
 package com.ecclesiav2;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +38,9 @@ public class ElectionInfoActivity extends AppCompatActivity {
         //CONTENT
         election = getIntent().getExtras().getParcelable("elec");
         setContent();
+
+        //Drop down box
+        setDropDown();
 
         //Begin voting button
         Button startVoteBtn = findViewById(R.id.startVoteBtn);
@@ -88,6 +95,31 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 startVoteBtn.setVisibility(View.GONE);
                 break;
         }
+    }
+
+    private void setDropDown() {
+        RelativeLayout detailsLayout;
+        Button buttonDown;
+        CardView cardView;
+
+        detailsLayout = findViewById(R.id.details_layout);
+        buttonDown = findViewById(R.id.button_down);
+        cardView = findViewById(R.id.card_view);
+
+        buttonDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (detailsLayout.getVisibility()==View.GONE){
+                    TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
+                    detailsLayout.setVisibility(View.VISIBLE);
+                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_down);
+                } else {
+                    TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
+                    detailsLayout.setVisibility(View.GONE);
+                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_down);
+                }
+            }
+        });
     }
 
     private void setContent() {
