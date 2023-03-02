@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.sql.Statement;
 
 public class ElectionInfoActivity extends AppCompatActivity {
@@ -105,6 +107,16 @@ public class ElectionInfoActivity extends AppCompatActivity {
         detailsLayout = findViewById(R.id.details_layout);
         buttonDown = findViewById(R.id.button_down);
         cardView = findViewById(R.id.card_view);
+
+//        String infoTxt = "Others are still joining the election, you can join the election at " + startTime + ".";
+//        TextView moreInfo = v.findViewById(R.id.moreInfo);
+//        moreInfo.setText(infoTxt);
+
+        TextView elecDescription = findViewById(R.id.card_description);
+        elecDescription.setText(election.getDescription());
+
+        TextView elecOptions = findViewById(R.id.card_options);
+        elecOptions.setText(election.getOptionsDescriptions());
 
         buttonDown.setOnClickListener(new View.OnClickListener() {
             @Override

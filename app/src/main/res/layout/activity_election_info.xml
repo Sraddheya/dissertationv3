@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="50dp"
-    android:layout_marginBottom="50dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
     tools:context=".ElectionInfoActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
 
         <TextView
             android:id="@+id/titleTxt"
@@ -154,7 +154,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/card_view"
             android:layout_centerInParent="true"
-            android:text="Begin Voting" />
+            android:text="Begin Voting"
+            android:layout_marginTop="20dp"/>
     </RelativeLayout>
 </ScrollView>
 

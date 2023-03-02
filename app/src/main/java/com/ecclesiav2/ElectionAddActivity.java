@@ -72,23 +72,25 @@ public class ElectionAddActivity extends AppCompatActivity {
     }
 
     private void setElections() {
-        ArrayList<String> options = new ArrayList<>();
-        options.add("op1");
-        options.add("op2");
+        ArrayList<String> options1 = new ArrayList<>();
+        options1.add("Water");
+        options1.add("Coke");
+        options1.add("Sprite");
+        options1.add("Fanta");
 
-        ArrayList<String> optionDescriptions = new ArrayList<>();
-        optionDescriptions.add("This is the description");
-        optionDescriptions.add("This is the description");
+        allElections.add(new Election("0", "Favourite drink", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
+                "What is your favourite drink?",
+                "In this election, we want to find out what your favourite drink is.",
+                options1,
+                "\u25CF Water: Unflavoured still water.\n" +
+                        "\u25CF Coke: A brand of fizzy drink.\n" +
+                        "\u25CF Sprite: A brand of fizzy drink.\n" +
+                        "\u25CF Fanta: A brand of fizzy drink."));
 
-        allElections.add(new Election("0", "el0", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Who am I?", "Hello description", options, optionDescriptions));
-        allElections.add(new Election("1", "el1", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Who am I?", "Hello description", options, optionDescriptions));
-        allElections.add(new Election("2", "el2", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Who am I?", "Hello description", options, optionDescriptions));
-        allElections.add(new Election("3", "el3", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined", "Who am I?", "Hello description", options, optionDescriptions));
-
-        allElections.add(new Election("4", "Favourite Pizza Toppings", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
-                "What is your favourite pizza topping?",
-                "In this election, we want to find out what your favourite pizza topping is.",
-                options,
-                optionDescriptions));
+//        allElections.add(new Election("4", "Favourite Pizza Toppings", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
+//                "What is your favourite pizza topping?",
+//                "In this election, we want to find out what your favourite pizza topping is.",
+//                options,
+//                "optionDescriptions"));
     }
 }

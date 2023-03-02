@@ -17,11 +17,11 @@ public class Election implements Parcelable {
     private String status;
     private String description;
     private ArrayList<String> options;
-    private ArrayList<String> optionsDescriptions;
+    private String optionsDescriptions;
     private int selectedIndex;
     private String question;
 
-    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, ArrayList<String> optionsDescriptions) {
+    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, String optionsDescriptions) {
         this.elecId = elecId;
         this.title = title;
         this.orgId = orgId;
@@ -45,7 +45,7 @@ public class Election implements Parcelable {
         question = in.readString();
         description = in.readString();
         options = in.createStringArrayList();
-        optionsDescriptions = in.createStringArrayList();
+        optionsDescriptions = in.readString();
         selectedIndex = in.readInt();
     }
 
@@ -117,11 +117,11 @@ public class Election implements Parcelable {
         this.options = options;
     }
 
-    public ArrayList<String> getOptionsDescriptions() {
+    public String getOptionsDescriptions() {
         return optionsDescriptions;
     }
 
-    public void setOptionsDescriptions(ArrayList<String> optionsDescriptions) {
+    public void setOptionsDescriptions(String optionsDescriptions) {
         this.optionsDescriptions = optionsDescriptions;
     }
 
@@ -199,7 +199,7 @@ public class Election implements Parcelable {
         parcel.writeString(question);
         parcel.writeString(description);
         parcel.writeStringList(options);
-        parcel.writeStringList(optionsDescriptions);
+        parcel.writeString(optionsDescriptions);
         parcel.writeInt(selectedIndex);
     }
 }
