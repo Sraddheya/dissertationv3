@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,9 +29,8 @@ public class VoteSelection extends AppCompatActivity {
 
         //CONTENT
         election = getIntent().getExtras().getParcelable("elec");
-        String title = election.getTitle();
-        TextView titleTextView = findViewById(R.id.title);
-        titleTextView.setText(title);
+        TextView question = findViewById(R.id.question);
+        question.setText(election.getQuestion());
 
         //Radio buttons
         rgp= findViewById(R.id.radioGroup);
@@ -81,6 +81,8 @@ public class VoteSelection extends AppCompatActivity {
         for (String option : election.getOptions()){
             RadioButton radioButton = new RadioButton(this);
             radioButton.setText(option);
+            radioButton.setTextSize(18);
+            radioButton.setTextColor(Color.parseColor("#494848"));
             radioButton.setId(View.generateViewId());
             rprms= new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
             rgp.addView(radioButton, rprms);

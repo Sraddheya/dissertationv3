@@ -135,7 +135,7 @@ public class Election implements Parcelable {
 
     public String getStatus() {
         if(this.elecId.equals("0")){
-            status = "Results calculated";
+            status = "Voting started";
             selectedIndex = 1;
         }
 

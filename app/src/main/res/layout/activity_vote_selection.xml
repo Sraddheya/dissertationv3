@@ -4,26 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VoteSelection">
+    tools:context=".VoteSelection"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="50dp"
+    android:layout_marginRight="35dp"
+    android:layout_marginBottom="50dp">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/question"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Election question"
+        android:textColor="@color/font"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*You must select one and only one option."
+        android:textColor="@color/font"
+        android:textSize="20sp"
+        android:layout_below="@id/question"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
     
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title">
+        android:layout_below="@id/warning">
     </RadioGroup>
 
     <Button
         android:id="@+id/castVoteBtn"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cast Voting"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/radioGroup"/>
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/blue_dark"
+        android:text="Cast Vote"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
