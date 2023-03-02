@@ -58,7 +58,7 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            electionTitle = itemView.findViewById(R.id.ElectionTitle);
+            electionTitle = itemView.findViewById(R.id.electionTitle);
             parent = itemView.findViewById(R.id.parent);
             itemView.setOnClickListener(this);
         }
