@@ -8,4 +8,7 @@
         \n\u25CF Vote casted: You have casted your vote.
         \n\u25CF Vote recorded: Your vote has been recorded to the blockchain and can be guaranteed to be counted in the final result.
         \n\u25CF Results calculated: The final result has been calculated. </string>
+    <string name="statusOneDescription">Others are still joining the election, you can join the election at DD/MM/YY HH:MM.</string>
+    <string name="statusTwoDescription">You can now begin voting.</string>
+    <string name="statusThreeDescription">Your vote has been casted and is in the process of being recorded to the blockchain. To learn more go to the FAQ.</string>
 </resources>

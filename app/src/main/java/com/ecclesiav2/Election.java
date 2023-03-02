@@ -134,6 +134,11 @@ public class Election implements Parcelable {
     }
 
     public String getStatus() {
+        if(this.elecId.equals("0")){
+            status = "Vote casted";
+            selectedIndex = 1;
+        }
+
         if (this.elecId.equals("4")){
             if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
                 if (this.selectedIndex > -1){

@@ -1,13 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="20dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="20dp"
     tools:context=".StatusThree">
 
-    <TextView
-        android:id="@+id/selectedIndex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <ImageView
+        android:id="@+id/check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_check_true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/yes" />
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_check_true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check1"
+        app:tint="@color/yes" />
+
+    <ImageView
+        android:id="@+id/check3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_check_true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check2"
+        app:tint="@color/yes" />
+
+    <ImageView
+        android:id="@+id/check4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/icon_check_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check3"
+        app:tint="@color/font_greyed" />
+
+    <ImageView
+        android:id="@+id/check5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/icon_check_outline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/check4"
+        app:tint="@color/font_greyed" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="20dp"
+        android:layout_height="2dp"
+        android:progress="100"
+        android:progressTint="@color/yes"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/check2"
+        app:layout_constraintEnd_toEndOf="@+id/check2"
+        app:layout_constraintStart_toStartOf="@+id/check1"
+        app:layout_constraintTop_toBottomOf="@+id/check1" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="20dp"
+        android:layout_height="2dp"
+        android:progress="100"
+        android:progressTint="@color/yes"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/check3"
+        app:layout_constraintEnd_toEndOf="@+id/check3"
+        app:layout_constraintStart_toStartOf="@+id/check2"
+        app:layout_constraintTop_toBottomOf="@+id/check2" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="110dp"
+        android:layout_height="2dp"
+        android:progress="100"
+        android:progressTint="@color/yes"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/check4"
+        app:layout_constraintEnd_toEndOf="@+id/check4"
+        app:layout_constraintStart_toStartOf="@+id/check3"
+        app:layout_constraintTop_toBottomOf="@+id/check3" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="20dp"
+        android:layout_height="2dp"
+        android:progress="100"
+        android:progressTint="@color/font_greyed"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/check5"
+        app:layout_constraintEnd_toEndOf="@+id/check5"
+        app:layout_constraintStart_toStartOf="@+id/check4"
+        app:layout_constraintTop_toBottomOf="@+id/check4" />
+
+    <TextView
+        android:id="@+id/status1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Joined election"
+        android:textColor="@color/font"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/check1"
+        app:layout_constraintTop_toTopOf="@+id/check1" />
+
+    <TextView
+        android:id="@+id/status2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Voting started"
+        android:textColor="@color/font"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/check2"
+        app:layout_constraintStart_toEndOf="@+id/check2" />
+
+    <TextView
+        android:id="@+id/moreInfo"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/statusThreeDescription"
+        android:textColor="@color/font"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/status3"
+        app:layout_constraintTop_toBottomOf="@+id/status3" />
+
+    <TextView
+        android:id="@+id/status3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Vote casted"
+        android:textColor="@color/font"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/check3"
+        app:layout_constraintStart_toEndOf="@+id/check3" />
+
+    <TextView
+        android:id="@+id/status4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Vote recorded"
+        android:textColor="@color/font_greyed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/check4"
+        app:layout_constraintStart_toEndOf="@+id/check4" />
+
+    <TextView
+        android:id="@+id/status5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Results calculated"
+        android:textColor="@color/font_greyed"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/check5"
+        app:layout_constraintStart_toEndOf="@+id/check5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

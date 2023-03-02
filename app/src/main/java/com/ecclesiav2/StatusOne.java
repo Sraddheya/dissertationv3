@@ -24,9 +24,6 @@ public class StatusOne extends Fragment {
         String infoTxt = "Others are still joining the election, you can join the election at " + startTime + ".";
         TextView moreInfo = v.findViewById(R.id.moreInfo);
         moreInfo.setText(infoTxt);
-
-//        TextView startText = v.findViewById(R.id.startText);
-//        startText.setText(joinedText);
         return v;
     }
 }

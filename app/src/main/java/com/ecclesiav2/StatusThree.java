@@ -15,9 +15,6 @@ public class StatusThree extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_status_three, container, false);
-        int selectedIndex = getArguments().getInt("selectedIndex");
-        TextView text = v.findViewById(R.id.selectedIndex);
-        text.setText(Integer.toString(selectedIndex));
         return v;
     }
 }

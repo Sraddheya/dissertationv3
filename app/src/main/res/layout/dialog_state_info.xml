@@ -3,25 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".dialog_state_info"
-    android:padding="20dp">
+    android:padding="20dp"
+    tools:context=".dialog_state_info">
 
     <TextView
         android:id="@+id/infoTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/stateInfoTxt"
         android:textColor="@color/font"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <Button
+        style="@style/Widget.Material3.Button"
         android:id="@+id/closeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/blue_dark"
         android:text="Close"
         android:textColor="@color/white"
         android:textSize="18sp"
+        android:backgroundTint="@color/blue_dark"
         android:layout_below="@id/infoTxt"
         android:layout_centerInParent="true"
         android:layout_marginTop="20dp"/>

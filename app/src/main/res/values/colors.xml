@@ -10,8 +10,8 @@
 
     <color name="font">#494848</color>
     <color name="font_greyed">#A9A9A9</color>
-    <color name="no">#F24E1E</color>
-    <color name="yes">#4ECB71</color>
+    <color name="no">#E05A47</color>
+    <color name="yes">#3FB24F</color>
     <color name="inactive">#6B7280</color>
     <color name="blue_light">#7DA0FA</color>
     <color name="blue_dark">#5050B2</color>
