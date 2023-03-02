@@ -13,4 +13,5 @@
     <color name="no">#F24E1E</color>
     <color name="yes">#4ECB71</color>
     <color name="inactive">#6B7280</color>
+    <color name="blue_light">#7DA0FA</color>
 </resources>

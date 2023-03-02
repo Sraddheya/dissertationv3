@@ -1,129 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_marginTop="50dp"
     android:layout_marginBottom="50dp"
-    android:layout_marginLeft="50dp"
-    android:layout_marginRight="50dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
     tools:context=".ElectionInfoActivity">
 
-    <TextView
-        android:id="@+id/titleTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello"
-        android:textSize="30sp"
-        android:textColor="@color/font"/>
-
-    <TextView
-        android:id="@+id/lifeLineTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titleTxt"/>
-
-    <TextView
-        android:id="@+id/startCastTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lifeLineTxt"
-        android:paddingTop="20dp"
-        android:text="Hello"
-        android:textSize="20sp"
-        android:textColor="@color/font"/>
-
-    <TextView
-        android:id="@+id/endCastTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/startCastTxt"
-        android:paddingBottom="20dp"
-        android:text="Hello"
-        android:textSize="20sp"
-        android:textColor="@color/font"/>
-
-    <LinearLayout
-        android:id="@+id/statusInfoTxt"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/endCastTxt">
+        android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Election status"
+            android:text="Hello"
+            android:textSize="30sp"
+            android:textColor="@color/font"/>
+
+        <TextView
+            android:id="@+id/lifeLineTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTxt"/>
+
+        <TextView
+            android:id="@+id/startCastTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lifeLineTxt"
+            android:paddingTop="20dp"
+            android:text="Hello"
             android:textSize="20sp"
             android:textColor="@color/font"/>
 
-        <ImageButton
-            android:id="@+id/infoBtn"
+        <TextView
+            android:id="@+id/endCastTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_info"
-            android:background="@null"
-            android:layout_marginLeft="10dp"/>
+            android:layout_below="@id/startCastTxt"
+            android:paddingBottom="20dp"
+            android:text="Hello"
+            android:textSize="20sp"
+            android:textColor="@color/font"/>
 
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/statusInfoTxt">
-    </FrameLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/container">
-
-        <RelativeLayout
-            android:id="@+id/card_layout"
+        <LinearLayout
+            android:id="@+id/statusInfoTxt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/endCastTxt">
 
             <TextView
-                android:id="@+id/card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Election information"
+                android:text="Election status"
                 android:textSize="20sp"
-                android:padding="10dp"/>
+                android:textColor="@color/font"/>
 
-            <Button
-                android:id="@+id/button_down"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/icon_arrow_down"
-                android:layout_alignParentRight="true"/>
+            <ImageButton
+                android:id="@+id/infoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_info"
+                android:background="@null"
+                android:layout_marginLeft="10dp"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/statusInfoTxt">
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/container"
+            app:cardBackgroundColor="@color/blue_light"
+            app:cardCornerRadius="15dp">
 
             <RelativeLayout
-                android:id="@+id/details_layout"
-                android:visibility="gone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/card_title">
+                android:id="@+id/card_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/card_details"
+                    android:id="@+id/card_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="hello"/>
+                    android:text="Election information"
+                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/button_down"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/icon_arrow_down"
+                    app:backgroundTint="@color/white"/>
+
+                <RelativeLayout
+                    android:id="@+id/details_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/card_title"
+                    android:layout_margin="20dp">
+
+                    <TextView
+                        android:id="@+id/card_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:text="hello1"
+                        android:layout_alignParentTop="true"/>
+
+                    <TextView
+                        android:id="@+id/card_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="You can choose from the following options"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_below="@id/card_description"/>
+
+                    <TextView
+                        android:id="@+id/card_options"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:text="hello2"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:layout_below="@id/card_info"/>
+                </RelativeLayout>
             </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        <Button
+            android:id="@+id/startVoteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/card_view"
+            android:layout_centerInParent="true"
+            android:text="Begin Voting" />
+    </RelativeLayout>
+</ScrollView>
 
-    <Button
-        android:id="@+id/startVoteBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Begin Voting"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/card_view"/>
-
-</RelativeLayout>
+<!--    android:visibility="gone"-->

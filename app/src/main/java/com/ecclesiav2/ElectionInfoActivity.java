@@ -112,7 +112,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 if (detailsLayout.getVisibility()==View.GONE){
                     TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
                     detailsLayout.setVisibility(View.VISIBLE);
-                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_down);
+                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_up);
                 } else {
                     TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
                     detailsLayout.setVisibility(View.GONE);
