@@ -5,13 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ElectionActivity">
-
-    <Button
-        android:id="@+id/qrButton"
-        android:layout_width="wrap_content"
+    
+    <RelativeLayout
+        android:id="@+id/pageTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Election"
+            android:textSize="35sp"
+            android:textColor="@color/font"/>
+
+        <Button
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+            android:id="@+id/qrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:layout_alignParentEnd="true"
+            app:icon="@drawable/icon_add"
+            android:backgroundTint="@color/blue_dark"
+            app:iconTint="@color/white"
+            />
+
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ElecRecView"
@@ -19,7 +45,7 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item_election"
         android:layout_above="@id/bottom_nav"
-        android:layout_below="@id/qrButton"
+        android:layout_below="@id/pageTitle"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

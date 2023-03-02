@@ -35,6 +35,8 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Election election = elections.get(position);
         holder.electionTitle.setText(election.getTitle());
+        holder.startTime.setText("Voting starts at: " + election.getStartCast());
+        holder.endTime.setText("Voting ends at: " + election.getEndCast());
     }
 
     @Override
@@ -53,12 +55,14 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        private TextView electionTitle;
+        private TextView electionTitle, startTime, endTime;
         private RelativeLayout parent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             electionTitle = itemView.findViewById(R.id.electionTitle);
+            startTime = itemView.findViewById(R.id.startTime);
+            endTime = itemView.findViewById(R.id.endTime);
             parent = itemView.findViewById(R.id.parent);
             itemView.setOnClickListener(this);
         }
