@@ -55,7 +55,7 @@ public class VoteSelection extends AppCompatActivity {
 
     private void showVoteDialog() {
         final AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        View mView = getLayoutInflater().inflate(R.layout.fragment_vote_dialog, null);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_confirm_vote, null);
         alert.setView(mView);
 
         final AlertDialog alertDialog = alert.create();

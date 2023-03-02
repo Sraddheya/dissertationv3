@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp">
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp">
 
         <TextView
             android:id="@+id/titleTxt"
@@ -58,6 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Election status"
+                android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/font"/>
 
@@ -67,7 +68,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_info"
                 android:background="@null"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginStart="10dp"
+                app:tint="@color/font"
+                android:contentDescription="More information button" />
 
         </LinearLayout>
 
@@ -82,7 +85,7 @@
             android:id="@+id/card_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_below="@id/container"
             app:cardBackgroundColor="@color/blue_light"
             app:cardCornerRadius="15dp">
@@ -98,7 +101,8 @@
                     android:layout_height="wrap_content"
                     android:text="Election information"
                     android:textSize="20sp"
-                    android:padding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="20dp"
                     android:textColor="@color/white"/>
 
                 <Button
@@ -107,7 +111,8 @@
                     android:layout_height="50dp"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/icon_arrow_down"
-                    app:backgroundTint="@color/white"/>
+                    app:backgroundTint="@color/white"
+                    android:contentDescription="Reveal/hide information button"/>
 
                 <RelativeLayout
                     android:id="@+id/details_layout"
@@ -121,7 +126,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:text="hello1"
                         android:layout_alignParentTop="true"/>
 
@@ -132,7 +137,7 @@
                         android:paddingTop="10dp"
                         android:text="You can choose from the following options"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:layout_below="@id/card_description"/>
 
                     <TextView
@@ -142,7 +147,7 @@
                         android:paddingTop="10dp"
                         android:text="hello2"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:layout_below="@id/card_info"/>
                 </RelativeLayout>
             </RelativeLayout>
@@ -154,8 +159,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/card_view"
             android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
             android:text="Begin Voting"
-            android:layout_marginTop="20dp"/>
+            android:backgroundTint="@color/blue_dark"/>
     </RelativeLayout>
 </ScrollView>
 

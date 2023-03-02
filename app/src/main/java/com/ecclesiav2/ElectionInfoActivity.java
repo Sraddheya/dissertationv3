@@ -1,5 +1,6 @@
 package com.ecclesiav2;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -11,6 +12,7 @@ import android.transition.TransitionManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +22,6 @@ import org.w3c.dom.Text;
 import java.sql.Statement;
 
 public class ElectionInfoActivity extends AppCompatActivity {
-
     StatusOne statusOne = new StatusOne();
     StatusTwo statusTwo = new StatusTwo();
     StatusThree statusThree = new StatusThree();
@@ -37,9 +38,18 @@ public class ElectionInfoActivity extends AppCompatActivity {
         //Back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //CONTENT
+        //Content
         election = getIntent().getExtras().getParcelable("elec");
         setContent();
+
+        //More info button
+        ImageButton infoBtn = findViewById(R.id.infoBtn);
+        infoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showInfoDialog();
+            }
+        });
 
         //Drop down box
         setDropDown();
@@ -99,18 +109,25 @@ public class ElectionInfoActivity extends AppCompatActivity {
         }
     }
 
+    private void showInfoDialog() {
+        final AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.dialog_state_info, null);
+        alert.setView(mView);
+
+        final AlertDialog alertDialog = alert.create();
+        alertDialog.setCancelable(false);
+
+        mView.findViewById(R.id.closeBtn).setOnClickListener(v -> {
+            alertDialog.dismiss();
+        });
+
+        alertDialog.show();
+    }
+
     private void setDropDown() {
-        RelativeLayout detailsLayout;
-        Button buttonDown;
-        CardView cardView;
-
-        detailsLayout = findViewById(R.id.details_layout);
-        buttonDown = findViewById(R.id.button_down);
-        cardView = findViewById(R.id.card_view);
-
-//        String infoTxt = "Others are still joining the election, you can join the election at " + startTime + ".";
-//        TextView moreInfo = v.findViewById(R.id.moreInfo);
-//        moreInfo.setText(infoTxt);
+        RelativeLayout detailsLayout = findViewById(R.id.details_layout);
+        Button showHideBtn = findViewById(R.id.button_down);
+        CardView cardView = findViewById(R.id.card_view);
 
         TextView elecDescription = findViewById(R.id.card_description);
         elecDescription.setText(election.getDescription());
@@ -118,17 +135,17 @@ public class ElectionInfoActivity extends AppCompatActivity {
         TextView elecOptions = findViewById(R.id.card_options);
         elecOptions.setText(election.getOptionsDescriptions());
 
-        buttonDown.setOnClickListener(new View.OnClickListener() {
+        showHideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (detailsLayout.getVisibility()==View.GONE){
                     TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
                     detailsLayout.setVisibility(View.VISIBLE);
-                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_up);
+                    showHideBtn.setBackgroundResource(R.drawable.icon_arrow_up);
                 } else {
                     TransitionManager.beginDelayedTransition(detailsLayout, new AutoTransition());
                     detailsLayout.setVisibility(View.GONE);
-                    buttonDown.setBackgroundResource(R.drawable.icon_arrow_down);
+                    showHideBtn.setBackgroundResource(R.drawable.icon_arrow_down);
                 }
             }
         });

@@ -3,4 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="qr_scanner_text">Place QR code in scanner box</string>
+    <string name="stateInfoTxt">\u25CF Joined election: When you have joined the election.
+        \n\u25CF Voting started: Voting period has begun. You can now begin to cast your vote.
+        \n\u25CF Vote casted: You have casted your vote.
+        \n\u25CF Vote recorded: Your vote has been recorded to the blockchain and can be guaranteed to be counted in the final result.
+        \n\u25CF Results calculated: The final result has been calculated. </string>
 </resources>
