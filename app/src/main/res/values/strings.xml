@@ -13,4 +13,9 @@
     <string name="statusThreeDescription">Your vote has been casted and is in the process of being recorded to the blockchain. To learn more go to the FAQ.</string>
     <string name="statusFourTrueDescription">Your vote has been recorded onto the blockchain. All the votes will be calculated after the voting ends.</string>
     <string name="statusFourFalseDescription">Your vote could not be recorded to the blockchain. Find out how to resolve this issue.</string>
+    <string name="confirmationDialogBold">Are you sure you want to cast this vote?</string>
+    <string name="confirmationDialogNormal">Once you cast a vote, you will not be able to change your vote.</string>
+    <string name="castedTxt3">You vote has been encrypted and casted. It will take some time for it to be recorded to the blockchain.</string>
+    <string name="castedTxt4">Come back later to verify it has been recorded successfully.</string>
+    <string name="castedLearnMore">Learn more.</string>
 </resources>
