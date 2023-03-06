@@ -2,9 +2,7 @@ package com.ecclesiav2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,7 +39,7 @@ public class OrganisationAddActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OrganisationAddActivity.this, MainActivity.class);
+                Intent intent = new Intent(OrganisationAddActivity.this, OrganisationActivity.class);
                 intent.putExtra("Organisation", allOrganisations.get(index));
                 startActivity(intent);
             }
@@ -52,7 +50,7 @@ public class OrganisationAddActivity extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(OrganisationAddActivity.this, MainActivity.class);
+                Intent intent = new Intent(OrganisationAddActivity.this, OrganisationActivity.class);
                 startActivity(intent);
             }
         });

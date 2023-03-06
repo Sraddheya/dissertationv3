@@ -2,14 +2,12 @@ package com.ecclesiav2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -20,11 +18,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ElectionActivity extends AppCompatActivity {
-    //private BottomNavigationView bottomNavigationView;
     private ArrayList<Election> registeredElections;
     private RecyclerView elecRecView;
     private ElectionAdapter.RecyclerViewClickListener elecListener;
@@ -55,6 +51,7 @@ public class ElectionActivity extends AppCompatActivity {
             }
             saveElections();
         }
+
         //Setup RecyclerView
         elecRecView = findViewById(R.id.ElecRecView);
         elecRecView.setLayoutManager(new LinearLayoutManager(this));
@@ -78,7 +75,7 @@ public class ElectionActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.organisations:
-                        Intent intent = new Intent(ElectionActivity.this, MainActivity.class);
+                        Intent intent = new Intent(ElectionActivity.this, OrganisationActivity.class);
                         startActivity(intent);
                         return true;
                 }
