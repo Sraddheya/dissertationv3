@@ -12,8 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class OrganisationInfoActivity extends AppCompatActivity{
-    BottomNavigationView bottomNavigationView;
-
+    private Organisation organisation;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +22,14 @@ public class OrganisationInfoActivity extends AppCompatActivity{
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //CONTENT
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("NAME");
-        String description = intent.getStringExtra("DESCRIPTION");
+        organisation = getIntent().getExtras().getParcelable("org");
+        setContent();
+    }
 
-        TextView nameTextView = findViewById(R.id.orgName);
-        TextView descriptionTextView = findViewById(R.id.orgDescription);
-
-        nameTextView.setText(name);
-        descriptionTextView.setText(description);
+    private void setContent() {
+        TextView titleTxt = findViewById(R.id.orgName);
+        titleTxt.setText(organisation.getName());
+        TextView descriptionTxt = findViewById(R.id.orgDescription);
+        descriptionTxt.setText(organisation.getDescription());
     }
 }

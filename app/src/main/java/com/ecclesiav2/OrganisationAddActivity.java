@@ -35,8 +35,8 @@ public class OrganisationAddActivity extends AppCompatActivity {
         descriptionTextView.setText(allOrganisations.get(index).getDescription());
 
         //Add button
-        Button addBtn = findViewById(R.id.addBtn);
-        addBtn.setOnClickListener(new View.OnClickListener() {
+        Button joinBtn = findViewById(R.id.joinBtn);
+        joinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OrganisationAddActivity.this, OrganisationActivity.class);

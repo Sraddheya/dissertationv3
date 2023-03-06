@@ -4,19 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="50dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginRight="50dp"
     tools:context=".OrganisationInfoActivity">
 
     <TextView
         android:id="@+id/orgName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:text="Organisation name"
+        android:textSize="30sp"
+        android:textColor="@color/font"/>
 
     <TextView
         android:id="@+id/orgDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/orgName"/>
+        android:layout_below="@id/orgName"
+        android:paddingTop="20dp"
+        android:text="Hello"
+        android:textSize="20sp"
+        android:textColor="@color/font"/>
 
 </RelativeLayout>
