@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("DATA", registeredOrganisations);
         organisationFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, organisationFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, organisationFragment).commit();
     }
 
     private void saveOrganisation(){

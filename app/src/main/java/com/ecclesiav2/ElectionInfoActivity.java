@@ -17,10 +17,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.sql.Statement;
-
 public class ElectionInfoActivity extends AppCompatActivity {
     StatusOne statusOne = new StatusOne();
     StatusTwo statusTwo = new StatusTwo();
@@ -28,6 +24,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
     StatusFourTrue statusFourTrue = new StatusFourTrue();
     StatusFourFalse statusFourFalse = new StatusFourFalse();
     StatusFive statusFive = new StatusFive();
+    ResultsFragment resultsFragment = new ResultsFragment();
     private Election election;
 
     @Override
@@ -62,7 +59,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("startTime", election.getStartCast());
                 statusOne.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusOne).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusOne).commit();
 
                 //Show disabled button
                 startVoteBtn.setBackgroundColor(Color.GRAY);
@@ -75,9 +72,10 @@ public class ElectionInfoActivity extends AppCompatActivity {
 
                 break;
             case "Voting started":
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusTwo).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusTwo).commit();
 
                 //Show enabled button
+                startVoteBtn.setVisibility(View.VISIBLE);
                 startVoteBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -91,19 +89,20 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 Bundle bundle2 = new Bundle();
                 bundle2.putInt("selectedIndex", election.getSelectedIndex());
                 statusThree.setArguments(bundle2);
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusThree).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusThree).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded true":
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFourTrue).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourTrue).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded false":
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFourFalse).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourFalse).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, statusFive).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsFragment).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
         }

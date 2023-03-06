@@ -9,10 +9,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="50dp">
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp">
 
         <TextView
             android:id="@+id/titleTxt"
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/lifeLineTxt"
-            android:paddingTop="20dp"
+            android:layout_marginTop="20dp"
             android:text="Voting starts at"
             android:textColor="@color/font"
             android:textSize="20sp" />
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/startCastTxt"
-            android:paddingBottom="20dp"
+            android:layout_marginBottom="20dp"
             android:text="Voting ends at"
             android:textColor="@color/font"
             android:textSize="20sp" />
@@ -75,7 +75,7 @@
         </LinearLayout>
 
         <FrameLayout
-            android:id="@+id/container"
+            android:id="@+id/containerStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/statusInfoTxt"/>
@@ -86,9 +86,9 @@
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/blue_light"
             app:cardCornerRadius="15dp"
-            android:layout_below="@id/container"
+            android:layout_below="@id/containerStatus"
             android:layout_marginTop="20dp"
-            >
+            android:layout_marginBottom="20dp">
 
             <RelativeLayout
                 android:id="@+id/card_layout"
@@ -99,8 +99,8 @@
                     android:id="@+id/card_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="Election information"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
@@ -136,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/card_description"
-                        android:paddingTop="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="You can choose from the following options"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
@@ -146,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/card_info"
-                        android:paddingTop="10dp"
+                        android:layout_marginTop="10dp"
                         android:text="hello2"
                         android:textColor="@color/white"
                         android:textSize="16sp" />
@@ -154,18 +154,23 @@
             </RelativeLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <FrameLayout
+            android:id="@+id/containerResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_view"/>
 
         <Button
             android:id="@+id/startVoteBtn"
             style="@style/Widget.Material3.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="@color/blue_dark"
             android:text="Begin Voting"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:layout_below="@id/card_view"
+            android:layout_below="@id/containerResults"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
