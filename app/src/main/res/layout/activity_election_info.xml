@@ -24,7 +24,7 @@
             android:layout_marginBottom="20dp"/>
 
         <LinearLayout
-            android:id="@+id/conatinerTag"
+            android:id="@+id/containerTag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTxt">
@@ -114,7 +114,7 @@
             android:id="@+id/startCastTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/conatinerTag"
+            android:layout_below="@id/containerTag"
             android:layout_marginTop="20dp"
             android:text="Voting starts at"
             android:textColor="@color/font"

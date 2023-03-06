@@ -8,8 +8,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHolder> {
@@ -37,6 +39,18 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
         holder.electionTitle.setText(election.getTitle());
         holder.startTime.setText("Voting starts at: " + election.getStartCast());
         holder.endTime.setText("Voting ends at: " + election.getEndCast());
+
+        //Set tags
+        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
+            holder.waitingTag.setVisibility(View.VISIBLE);
+        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
+            holder.closedTag.setVisibility(View.VISIBLE);
+        } else {
+            holder.activeTag.setVisibility(View.VISIBLE);
+        }
+        if (election.getSelectedIndex() > 0){
+            holder.votedTag.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -56,6 +70,7 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView electionTitle, startTime, endTime;
+        private CardView waitingTag, votedTag, activeTag, closedTag;
         private RelativeLayout parent;
 
         public ViewHolder(@NonNull View itemView) {
@@ -64,6 +79,11 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
             startTime = itemView.findViewById(R.id.startTime);
             endTime = itemView.findViewById(R.id.endTime);
             parent = itemView.findViewById(R.id.parent);
+
+            waitingTag = itemView.findViewById(R.id.waitingTag);
+            votedTag = itemView.findViewById(R.id.votedTag);
+            activeTag = itemView.findViewById(R.id.activeTag);
+            closedTag = itemView.findViewById(R.id.closedTag);
             itemView.setOnClickListener(this);
         }
 

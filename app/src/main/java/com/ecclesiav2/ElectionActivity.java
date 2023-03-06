@@ -2,6 +2,7 @@ package com.ecclesiav2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +20,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class ElectionActivity extends AppCompatActivity {
@@ -53,7 +55,6 @@ public class ElectionActivity extends AppCompatActivity {
             }
             saveElections();
         }
-
         //Setup RecyclerView
         elecRecView = findViewById(R.id.ElecRecView);
         elecRecView.setLayoutManager(new LinearLayoutManager(this));

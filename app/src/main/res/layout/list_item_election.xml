@@ -24,13 +24,103 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp">
 
+            <LinearLayout
+                android:id="@+id/containerTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/waitingTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/inactive"
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textAlignment="gravity"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Waiting"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/votedTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/yes"
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Voted"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/activeTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/yes"
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/closedTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/no"
+                    app:cardCornerRadius="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Closed"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/electionTitle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Election Title"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:layout_below="@id/containerTag"/>
 
             <TextView
                 android:id="@+id/startTime"
