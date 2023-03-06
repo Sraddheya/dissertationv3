@@ -78,7 +78,7 @@ public class ElectionAddActivity extends AppCompatActivity {
         options1.add("Sprite");
         options1.add("Fanta");
 
-        allElections.add(new Election("0", "Favourite drink", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
+        allElections.add(new Election("0", "Favourite drink", "0", "2016-03-04T11:30", "2016-03-04T11:30", "Joined",
                 "What is your favourite drink?",
                 "In this election, we want to find out what your favourite drink is.",
                 options1,

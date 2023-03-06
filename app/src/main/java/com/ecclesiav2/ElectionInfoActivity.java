@@ -17,6 +17,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.LocalDateTime;
+
 public class ElectionInfoActivity extends AppCompatActivity {
     StatusOne statusOne = new StatusOne();
     StatusTwo statusTwo = new StatusTwo();
@@ -53,6 +55,23 @@ public class ElectionInfoActivity extends AppCompatActivity {
 
         //Begin voting button
         Button startVoteBtn = findViewById(R.id.startVoteBtn);
+
+        //Create Tags
+        CardView waitingTag = findViewById(R.id.waitingTag);
+        CardView votedTag = findViewById(R.id.votedTag);
+        CardView activeTag = findViewById(R.id.activeTag);
+        CardView closedTag = findViewById(R.id.closedTag);
+        //Set tags
+        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
+            waitingTag.setVisibility(View.VISIBLE);
+        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
+            closedTag.setVisibility(View.VISIBLE);
+        } else {
+            activeTag.setVisibility(View.VISIBLE);
+        }
+        if (election.getSelectedIndex() > 0){
+            votedTag.setVisibility(View.VISIBLE);
+        }
 
         switch (election.getStatus()){
             case "Joined":

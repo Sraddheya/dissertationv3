@@ -20,19 +20,101 @@
             android:layout_height="wrap_content"
             android:text="Election title"
             android:textColor="@color/font"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"/>
 
-        <TextView
-            android:id="@+id/lifeLineTxt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/conatinerTag"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/titleTxt" />
+            android:layout_below="@id/titleTxt">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/waitingTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/inactive"
+                app:cardCornerRadius="15dp"
+                android:layout_marginRight="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Waiting"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/votedTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/yes"
+                app:cardCornerRadius="15dp"
+                android:layout_marginRight="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voted"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/activeTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/yes"
+                app:cardCornerRadius="15dp"
+                android:layout_marginRight="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Active"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/closedTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/no"
+                app:cardCornerRadius="15dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Closed"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/startCastTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lifeLineTxt"
+            android:layout_below="@id/conatinerTag"
             android:layout_marginTop="20dp"
             android:text="Voting starts at"
             android:textColor="@color/font"
