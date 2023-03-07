@@ -80,6 +80,7 @@ public class ElectionActivity extends AppCompatActivity {
                     case R.id.organisations:
                         Intent intent = new Intent(ElectionActivity.this, OrganisationActivity.class);
                         overridePendingTransition(0,0);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
                         return true;
                     case R.id.elections:

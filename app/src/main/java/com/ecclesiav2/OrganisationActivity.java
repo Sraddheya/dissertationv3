@@ -2,6 +2,7 @@ package com.ecclesiav2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,6 +27,8 @@ public class OrganisationActivity extends AppCompatActivity {
     private RecyclerView orgRecView;
     private OrganisationAdapter.RecyclerViewClickListener orgListener;
     private BottomNavigationView navView;
+    private SearchView orgSearchView;
+    private OrganisationAdapter orgAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,22 @@ public class OrganisationActivity extends AppCompatActivity {
             }
         });
 
+        //SEARCH VIEW
+        orgSearchView = findViewById(R.id.orgSearchView);
+        orgSearchView.clearFocus();
+        orgSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
+
         //Bottom navigation view
         navView = findViewById(R.id.bottom_nav);
         navView.setSelectedItemId(R.id.organisations);
@@ -69,6 +89,7 @@ public class OrganisationActivity extends AppCompatActivity {
                     case R.id.elections:
                         Intent intent = new Intent(OrganisationActivity.this, ElectionActivity.class);
                         overridePendingTransition(0,0);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
                         return true;
                 }
@@ -99,7 +120,7 @@ public class OrganisationActivity extends AppCompatActivity {
     }
 
     private void setAdapter() {
-        OrganisationAdapter orgAdapter = new OrganisationAdapter(this, orgListener);
+        orgAdapter = new OrganisationAdapter(this, orgListener);
         orgAdapter.setOrganisations(registeredOrganisations);
         orgRecView.setAdapter(orgAdapter);
     }
@@ -113,5 +134,21 @@ public class OrganisationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         };
+    }
+
+    private void filterList(String text){
+        ArrayList<Organisation> filteredList = new ArrayList<>();
+        for (Organisation organisation : registeredOrganisations){
+            if (organisation.getName().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(organisation);
+            }
+        }
+
+        if (filteredList.isEmpty()){
+            Toast.makeText(this, "No data found", Toast.LENGTH_SHORT).show();
+        }else{
+            orgAdapter.setOrganisations(filteredList);
+        }
+
     }
 }

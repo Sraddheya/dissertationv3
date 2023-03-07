@@ -36,10 +36,12 @@
                 android:id="@+id/descriptionTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Voting starts at:"
+                android:text="Organisation description"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_below="@id/organisationTitle"/>
+                android:textSize="18sp"
+                android:layout_below="@id/organisationTitle"
+                android:ellipsize="end"
+                android:maxLines="3"/>
 
         </RelativeLayout>
 

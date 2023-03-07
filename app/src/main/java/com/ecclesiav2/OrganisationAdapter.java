@@ -36,6 +36,7 @@ public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Organisation organisation = organisations.get(position);
         holder.organisationTitle.setText(organisation.getName());
+        holder.organisationDescription.setText(organisation.getDescription());
     }
 
     @Override
@@ -55,11 +56,13 @@ public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapte
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView organisationTitle;
+        private TextView organisationDescription;
         private RelativeLayout parent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             organisationTitle = itemView.findViewById(R.id.organisationTitle);
+            organisationDescription = itemView.findViewById(R.id.descriptionTxt);
             parent = itemView.findViewById(R.id.parent);
             itemView.setOnClickListener(this);
         }

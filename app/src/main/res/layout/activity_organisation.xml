@@ -39,13 +39,23 @@
 
     </RelativeLayout>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/orgSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:queryHint="Search here..."
+        app:iconifiedByDefault="false"
+        android:layout_below="@id/pageTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/OrgRecView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/list_item_organisation"
         android:layout_above="@id/bottom_nav"
-        android:layout_below="@id/pageTitle"
+        android:layout_below="@id/orgSearchView"
         />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
