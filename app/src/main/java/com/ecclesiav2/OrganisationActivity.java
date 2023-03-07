@@ -24,6 +24,7 @@ public class OrganisationActivity extends AppCompatActivity {
     private ArrayList<Organisation> registeredOrganisations;
     private RecyclerView orgRecView;
     private OrganisationAdapter.RecyclerViewClickListener orgListener;
+    private BottomNavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +58,17 @@ public class OrganisationActivity extends AppCompatActivity {
         });
 
         //Bottom navigation view
-        BottomNavigationView navView = findViewById(R.id.bottom_nav);
+        navView = findViewById(R.id.bottom_nav);
+        navView.setSelectedItemId(R.id.organisations);
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
+                    case R.id.organisations:
+                        return true;
                     case R.id.elections:
                         Intent intent = new Intent(OrganisationActivity.this, ElectionActivity.class);
+                        overridePendingTransition(0,0);
                         startActivity(intent);
                         return true;
                 }

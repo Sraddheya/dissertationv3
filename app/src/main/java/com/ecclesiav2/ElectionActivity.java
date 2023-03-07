@@ -24,6 +24,8 @@ public class ElectionActivity extends AppCompatActivity {
     private ArrayList<Election> registeredElections;
     private RecyclerView elecRecView;
     private ElectionAdapter.RecyclerViewClickListener elecListener;
+    private BottomNavigationView navView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,14 +71,18 @@ public class ElectionActivity extends AppCompatActivity {
         });
 
         //Bottom navigation view
-        BottomNavigationView navView = findViewById(R.id.bottom_nav);
+        navView = findViewById(R.id.bottom_nav);
+        navView.setSelectedItemId(R.id.elections);
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.organisations:
                         Intent intent = new Intent(ElectionActivity.this, OrganisationActivity.class);
+                        overridePendingTransition(0,0);
                         startActivity(intent);
+                        return true;
+                    case R.id.elections:
                         return true;
                 }
                 return false;
