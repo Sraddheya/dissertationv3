@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/orgTitle"
             android:paddingTop="20dp"
-            android:text="OOrganisation description"
+            android:text="Organisation description"
             android:textColor="@color/font"
             android:textSize="20sp" />
     </RelativeLayout>

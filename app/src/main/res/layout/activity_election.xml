@@ -4,57 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingTop="40dp"
+    android:paddingRight="30dp"
     tools:context=".ElectionActivity">
-    
+
     <RelativeLayout
         android:id="@+id/pageTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="10dp">
+        android:layout_alignParentTop="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Election"
-            android:textSize="35sp"
-            android:textColor="@color/font"/>
+            android:textColor="@color/font"
+            android:textSize="35sp" />
 
         <Button
-            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
             android:id="@+id/qrButton"
+            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
-            android:textSize="18sp"
-            android:textColor="@color/white"
             android:layout_alignParentEnd="true"
-            app:icon="@drawable/icon_add"
             android:backgroundTint="@color/blue_dark"
-            app:iconTint="@color/white"
-            />
+            android:text="Add"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:icon="@drawable/icon_add"
+            app:iconTint="@color/white" />
 
     </RelativeLayout>
 
+    <TextView
+        android:id="@+id/elecInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pageTitle"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="@string/electionInstruction"
+        android:textSize="18sp" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/ElecRecView"
+        android:id="@+id/elecRecView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_item_election"
         android:layout_above="@id/bottomNav"
         android:layout_below="@id/pageTitle"
-        />
+        tools:listitem="@layout/list_item_election" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:itemTextColor="@drawable/selector"
         app:itemIconTint="@drawable/selector"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/bottom_nav_menu" />
 
 </RelativeLayout>

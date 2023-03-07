@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ResultsPizzaFragment">
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="345dp" />
+
+    <TextView
+        android:id="@+id/elecQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chart"
+        android:text="Election question"
+        android:textSize="20sp"
+        android:textColor="@color/font"
+        android:paddingTop="20dp"/>
+
+    <TextView
+        android:id="@+id/selectedOption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/elecQuestion"
+        android:text="You selected"
+        android:textSize="20sp"
+        android:textColor="@color/font"
+        android:paddingTop="20dp"
+        android:textStyle="italic"/>
+
+    <LinearLayout
+        android:id="@+id/op1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectedOption"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shape_circle"
+            app:tint="#648FFF"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None"
+            android:textSize="18sp"
+            android:textColor="@color/font"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/op2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/op1"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shape_circle"
+            app:tint="#FFB000"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pepperoni"
+            android:textSize="18sp"
+            android:textColor="@color/font"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/op3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/op2"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shape_circle"
+            app:tint="#FE6100"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mushroom"
+            android:textSize="18sp"
+            android:textColor="@color/font"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/op4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/op3"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shape_circle"
+            app:tint="#DC267F"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sausage"
+            android:textSize="18sp"
+            android:textColor="@color/font"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/op5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/op4"
+        android:paddingTop="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shape_circle"
+            app:tint="#9A9FB3"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No vote (Abstain)"
+            android:textSize="18sp"
+            android:textColor="@color/font"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

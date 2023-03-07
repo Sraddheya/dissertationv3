@@ -1,5 +1,7 @@
 package com.ecclesiav2;
 
+import static com.github.mikephil.charting.utils.ColorTemplate.rgb;
+
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -10,24 +12,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-public class ResultsFragment extends Fragment {
+public class ResultsPizzaFragment extends Fragment {
 
     private PieChart pieChart;
+    public static final int[] PIE_COLORS = {
+            rgb("#648FFF"), rgb("#FFB000"), rgb("#FE6100"), rgb("#DC267F"), rgb("#9A9FB3")
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_results, container, false);
+        View v =  inflater.inflate(R.layout.fragment_pizza_results, container, false);
 
         pieChart = v.findViewById(R.id.chart);
         setupPieChart();
@@ -39,17 +42,9 @@ public class ResultsFragment extends Fragment {
     private void setupPieChart() {
         pieChart.setDrawHoleEnabled(false);
         pieChart.setUsePercentValues(true);
-        pieChart.setEntryLabelTextSize(12);
-        pieChart.setEntryLabelColor(Color.BLACK);
         pieChart.getDescription().setEnabled(false);
         pieChart.setDrawEntryLabels(false);
-
-        Legend l = pieChart.getLegend();
-        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
-        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
-        l.setOrientation(Legend.LegendOrientation.VERTICAL);
-        l.setDrawInside(false);
-        l.setEnabled(true);
+        pieChart.getLegend().setEnabled(false);
     }
 
     private void loadPieChart(){
@@ -58,14 +53,9 @@ public class ResultsFragment extends Fragment {
         entries.add(new PieEntry(0.25f, "None"));
         entries.add(new PieEntry(0.125f, "No vote"));
         entries.add(new PieEntry(0.125f, "Mushroom"));
-        entries.add(new PieEntry(0.00f, "Mushroom"));
 
         ArrayList<Integer> colors = new ArrayList<>();
-        for (int color: ColorTemplate.MATERIAL_COLORS){
-            colors.add(color);
-        }
-
-        for (int color: ColorTemplate.VORDIPLOM_COLORS){
+        for (int color: PIE_COLORS){
             colors.add(color);
         }
 
@@ -73,10 +63,10 @@ public class ResultsFragment extends Fragment {
         dataset.setColors(colors);
 
         PieData data = new PieData(dataset);
-        data.setDrawValues(false);//draw percentages on piechart
-//        data.setValueFormatter(new PercentFormatter(pieChart)); //write as percentage
-//        data.setValueTextSize(12f);
-//        data.setValueTextColor(Color.BLACK);
+        data.setDrawValues(true);
+        data.setValueFormatter(new PercentFormatter(pieChart));
+        data.setValueTextSize(15f);
+        data.setValueTextColor(Color.WHITE);
 
         pieChart.setData(data);
         pieChart.invalidate();

@@ -55,7 +55,7 @@ public class ElectionActivity extends AppCompatActivity {
         }
 
         //Setup RecyclerView
-        elecRecView = findViewById(R.id.ElecRecView);
+        elecRecView = findViewById(R.id.elecRecView);
         elecRecView.setLayoutManager(new LinearLayoutManager(this));
         setOnClickListener();
         setAdapter();

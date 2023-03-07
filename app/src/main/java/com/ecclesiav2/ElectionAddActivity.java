@@ -63,13 +63,28 @@ public class ElectionAddActivity extends AppCompatActivity {
         endCastTxt.setText("Voting ends at: " + election.getEndCast());
         TextView questionTxt = findViewById(R.id.questionTxt);
         questionTxt.setText(election.getQuestion());
-        TextView descriptionTxt = findViewById(R.id.orgDescription);
+        TextView descriptionTxt = findViewById(R.id.descriptionTxt);
         descriptionTxt.setText(election.getDescription());
-        TextView statusTxt = findViewById(R.id.statusTxt);
-        statusTxt.setText(election.getStatus());
+        TextView optionsTxt = findViewById(R.id.optionDescriptionTxt);
+        optionsTxt.setText(election.getOptionsDescriptions());
     }
 
     private void setElections() {
+        ArrayList<String> options0 = new ArrayList<>();
+        options0.add("None");
+        options0.add("Pepperoni");
+        options0.add("Mushroom");
+        options0.add("Sausage");
+
+        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2016-03-04T11:30", "2016-03-04T11:30", "Joined",
+                "What is your favourite pizza topping?",
+                "In this election, we want to find out what your favourite pizza topping is.",
+                options0,
+                "\u25CF None: No toppings, only standard tomato base and cheese on top.\n" +
+                        "\u25CF Pepperoni: An American variety of spicy salami made from cured pork and beef seasoned with paprika or other chili pepper.\n" +
+                        "\u25CF Mushroom: A fleshy, spore-bearing fruiting body of a fungus, typically produced above ground, on soil, or on its food source\n" +
+                        "\u25CF Sausage: A meat product usually made from ground meat—often pork, beef, or poultry—along with salt, spices and other flavourings.\n"));
+
         ArrayList<String> options1 = new ArrayList<>();
         options1.add("Water");
         options1.add("Coke");
@@ -84,11 +99,5 @@ public class ElectionAddActivity extends AppCompatActivity {
                         "\u25CF Coke: A brand of fizzy drink.\n" +
                         "\u25CF Sprite: A brand of fizzy drink.\n" +
                         "\u25CF Fanta: A brand of fizzy drink."));
-
-//        allElections.add(new Election("4", "Favourite Pizza Toppings", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
-//                "What is your favourite pizza topping?",
-//                "In this election, we want to find out what your favourite pizza topping is.",
-//                options,
-//                "optionDescriptions"));
     }
 }

@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
-    android:id="@+id/parent">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/blue_light"
-        app:cardCornerRadius="15dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        app:cardBackgroundColor="@color/blue_light"
+        app:cardCornerRadius="15dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
             android:layout_marginBottom="20dp">
 
             <LinearLayout
@@ -34,20 +35,20 @@
                     android:id="@+id/waitingTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/inactive"
-                    app:cardCornerRadius="15dp"
                     android:layout_marginLeft="15dp"
                     android:textAlignment="gravity"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/inactive"
+                    app:cardCornerRadius="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Waiting"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"/>
+                        android:paddingRight="10dp"
+                        android:text="Waiting"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -55,19 +56,19 @@
                     android:id="@+id/votedTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/yes"
-                    app:cardCornerRadius="15dp"
                     android:layout_marginLeft="15dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/yes"
+                    app:cardCornerRadius="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Voted"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"/>
+                        android:paddingRight="10dp"
+                        android:text="Voted"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -75,19 +76,19 @@
                     android:id="@+id/activeTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/yes"
-                    app:cardCornerRadius="15dp"
                     android:layout_marginLeft="15dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/yes"
+                    app:cardCornerRadius="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Active"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp" />
+                        android:paddingRight="10dp"
+                        android:text="Active"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -95,19 +96,19 @@
                     android:id="@+id/closedTag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:cardBackgroundColor="@color/no"
-                    app:cardCornerRadius="15dp"
                     android:layout_marginLeft="15dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/no"
+                    app:cardCornerRadius="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Closed"
-                        android:textSize="15sp"
-                        android:textColor="@color/white"
                         android:paddingLeft="10dp"
-                        android:paddingRight="10dp"/>
+                        android:paddingRight="10dp"
+                        android:text="Closed"
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -117,28 +118,28 @@
                 android:id="@+id/electionTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/containerTag"
                 android:text="Election Title"
                 android:textColor="@color/white"
-                android:textSize="25sp"
-                android:layout_below="@id/containerTag"/>
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/startTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/electionTitle"
                 android:text="Voting starts at:"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_below="@id/electionTitle"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/endTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/startTime"
                 android:text="Voting ends at:"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:layout_below="@id/startTime"/>
+                android:textSize="18sp" />
 
         </RelativeLayout>
 

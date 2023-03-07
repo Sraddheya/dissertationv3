@@ -26,7 +26,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
     StatusFourTrue statusFourTrue = new StatusFourTrue();
     StatusFourFalse statusFourFalse = new StatusFourFalse();
     StatusFive statusFive = new StatusFive();
-    ResultsFragment resultsFragment = new ResultsFragment();
+    ResultsPizzaFragment resultsFragment = new ResultsPizzaFragment();
     private Election election;
 
     @Override
