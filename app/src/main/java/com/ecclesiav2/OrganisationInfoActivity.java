@@ -1,15 +1,9 @@
 package com.ecclesiav2;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.TextView;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class OrganisationInfoActivity extends AppCompatActivity{
     private Organisation organisation;
@@ -27,7 +21,7 @@ public class OrganisationInfoActivity extends AppCompatActivity{
     }
 
     private void setContent() {
-        TextView titleTxt = findViewById(R.id.orgName);
+        TextView titleTxt = findViewById(R.id.orgTitle);
         titleTxt.setText(organisation.getName());
         TextView descriptionTxt = findViewById(R.id.orgDescription);
         descriptionTxt.setText(organisation.getDescription());

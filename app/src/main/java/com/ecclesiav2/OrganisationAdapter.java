@@ -1,7 +1,6 @@
 package com.ecclesiav2;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -61,8 +58,8 @@ public class OrganisationAdapter extends RecyclerView.Adapter<OrganisationAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            organisationTitle = itemView.findViewById(R.id.organisationTitle);
-            organisationDescription = itemView.findViewById(R.id.descriptionTxt);
+            organisationTitle = itemView.findViewById(R.id.orgTitle);
+            organisationDescription = itemView.findViewById(R.id.orgDescription);
             parent = itemView.findViewById(R.id.parent);
             itemView.setOnClickListener(this);
         }

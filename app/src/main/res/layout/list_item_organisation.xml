@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="10dp"
-    android:id="@+id/parent">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/blue_light"
-        app:cardCornerRadius="15dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        app:cardBackgroundColor="@color/blue_light"
+        app:cardCornerRadius="15dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
             android:layout_marginBottom="20dp">
 
             <TextView
-                android:id="@+id/organisationTitle"
+                android:id="@+id/orgTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Organisation Title"
+                android:text="Organisation title"
                 android:textColor="@color/white"
-                android:textSize="25sp"/>
+                android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/descriptionTxt"
+                android:id="@+id/orgDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/orgTitle"
+                android:ellipsize="end"
+                android:maxLines="3"
                 android:text="Organisation description"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:layout_below="@id/organisationTitle"
-                android:ellipsize="end"
-                android:maxLines="3"/>
+                android:textSize="18sp" />
 
         </RelativeLayout>
 

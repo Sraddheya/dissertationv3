@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
-    android:layout_marginBottom="50dp"
-    android:layout_marginLeft="50dp"
-    android:layout_marginRight="50dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:paddingRight="35dp"
+    android:paddingLeft="35dp"
     tools:context=".OrganisationAddActivity">
 
     <TextView
-        android:id="@+id/orgName"
+        android:id="@+id/orgTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Organisation name"
@@ -22,7 +22,7 @@
         android:id="@+id/orgDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orgName"
+        android:layout_below="@id/orgTitle"
         android:paddingTop="20dp"
         android:text="Hello"
         android:textSize="20sp"
@@ -30,24 +30,32 @@
 
     <Button
         android:id="@+id/cancelBtn"
-        android:text="Cancel"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orgDescription"
         android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
         android:layout_alignParentStart="true"
-        android:backgroundTint="@color/no"/>
+        android:backgroundTint="@color/no"
+        android:text="Cancel"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
 
     <Button
         android:id="@+id/joinBtn"
-        android:text="Join"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orgDescription"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:layout_alignParentEnd="true"
-        android:backgroundTint="@color/yes"/>
+        android:backgroundTint="@color/yes"
+        android:text="Join"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

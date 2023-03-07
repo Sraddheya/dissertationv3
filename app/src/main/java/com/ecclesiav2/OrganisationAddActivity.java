@@ -28,7 +28,7 @@ public class OrganisationAddActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int index = intent.getIntExtra("INDEX", 0);
 
-        TextView nameTextView = findViewById(R.id.orgName);
+        TextView nameTextView = findViewById(R.id.orgTitle);
         TextView descriptionTextView = findViewById(R.id.orgDescription);
 
         nameTextView.setText(allOrganisations.get(index).getName());

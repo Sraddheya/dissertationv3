@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="50dp"
-    android:layout_marginBottom="50dp"
-    android:layout_marginLeft="50dp"
-    android:layout_marginRight="50dp"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:paddingRight="35dp"
+    android:paddingLeft="35dp"
     tools:context=".OrganisationInfoActivity">
 
-    <TextView
-        android:id="@+id/orgName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Organisation name"
-        android:textSize="30sp"
-        android:textColor="@color/font"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/orgDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/orgName"
-        android:paddingTop="20dp"
-        android:text="Hello"
-        android:textSize="20sp"
-        android:textColor="@color/font"/>
+        <TextView
+            android:id="@+id/orgTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organisation title"
+            android:textColor="@color/font"
+            android:textSize="30sp" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/orgDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/orgTitle"
+            android:paddingTop="20dp"
+            android:text="OOrganisation description"
+            android:textColor="@color/font"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</ScrollView>

@@ -71,7 +71,7 @@ public class ElectionActivity extends AppCompatActivity {
         });
 
         //Bottom navigation view
-        navView = findViewById(R.id.bottom_nav);
+        navView = findViewById(R.id.bottomNav);
         navView.setSelectedItemId(R.id.elections);
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

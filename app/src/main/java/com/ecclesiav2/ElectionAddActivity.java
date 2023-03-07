@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ElectionAddActivity extends AppCompatActivity {
@@ -65,7 +63,7 @@ public class ElectionAddActivity extends AppCompatActivity {
         endCastTxt.setText("Voting ends at: " + election.getEndCast());
         TextView questionTxt = findViewById(R.id.questionTxt);
         questionTxt.setText(election.getQuestion());
-        TextView descriptionTxt = findViewById(R.id.descriptionTxt);
+        TextView descriptionTxt = findViewById(R.id.orgDescription);
         descriptionTxt.setText(election.getDescription());
         TextView statusTxt = findViewById(R.id.statusTxt);
         statusTxt.setText(election.getStatus());

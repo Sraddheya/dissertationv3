@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -45,11 +46,17 @@ public class OrganisationActivity extends AppCompatActivity {
             saveOrganisations();
         }
 
+        //Show instructions
+        if (registeredOrganisations.isEmpty()){
+
+        }
+
         //Setup RecyclerView
-        orgRecView = findViewById(R.id.OrgRecView);
+        orgRecView = findViewById(R.id.orgRecView);
         orgRecView.setLayoutManager(new LinearLayoutManager(this));
         setOnClickListener();
         setAdapter();
+        showInstructions();
 
         //QRScanner button
         Button qrButton = findViewById(R.id.qrButton);
@@ -78,7 +85,7 @@ public class OrganisationActivity extends AppCompatActivity {
         });
 
         //Bottom navigation view
-        navView = findViewById(R.id.bottom_nav);
+        navView = findViewById(R.id.bottomNav);
         navView.setSelectedItemId(R.id.organisations);
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -96,6 +103,15 @@ public class OrganisationActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void showInstructions() {
+        TextView orgInstructions = findViewById(R.id.orgInstruction);
+        if (registeredOrganisations.isEmpty()){
+            orgInstructions.setVisibility(View.VISIBLE);
+        } else {
+            orgInstructions.setVisibility(View.GONE);
+        }
     }
 
     private void saveOrganisations() {

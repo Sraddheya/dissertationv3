@@ -48,7 +48,7 @@
         android:textColor="@color/font"/>
 
     <TextView
-        android:id="@+id/descriptionTxt"
+        android:id="@+id/orgDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/questionTxt"
@@ -61,7 +61,7 @@
         android:id="@+id/segueTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/descriptionTxt"
+        android:layout_below="@+id/orgDescription"
         android:paddingTop="20dp"
         android:text="You can choose from the following options:"
         android:textSize="20sp"
