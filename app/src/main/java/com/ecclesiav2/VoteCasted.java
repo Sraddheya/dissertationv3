@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class VoteCasted extends AppCompatActivity {
     Button endCastBtn;
@@ -20,7 +21,11 @@ public class VoteCasted extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
+        String selectedString = getIntent().getStringExtra("selectedString");
         String elecID = getIntent().getStringExtra("elecID");
+
+        TextView optionConfirmation = findViewById(R.id.txt2);
+        optionConfirmation.setText("You voted for " + selectedString);
 
         endCastBtn = findViewById(R.id.endCastBtn);
         endCastBtn.setOnClickListener(new View.OnClickListener() {

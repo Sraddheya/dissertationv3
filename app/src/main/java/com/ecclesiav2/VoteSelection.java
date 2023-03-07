@@ -39,7 +39,7 @@ public class VoteSelection extends AppCompatActivity {
         rgp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                selectedIndex = i;
+                selectedIndex = i-1;
             }
         });
 
@@ -68,6 +68,7 @@ public class VoteSelection extends AppCompatActivity {
         mView.findViewById(R.id.castBtn).setOnClickListener(v -> {
             Intent intent = new Intent(VoteSelection.this, VoteCasted.class);
             intent.putExtra("selectedIndex", selectedIndex);
+            intent.putExtra("selectedString", election.getOptions().get(selectedIndex));
             intent.putExtra("elecID", election.getElecId());
             startActivity(intent);
         });
