@@ -1,14 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HelpActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HelpPage"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
+        android:paddingRight="35dp"
+        android:paddingLeft="35dp">
+
+        <TextView
+            android:id="@+id/pageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Help"
+            android:textColor="@color/font"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/securitySubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Security"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            android:layout_below="@id/pageTitle"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/processSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Process"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            android:layout_below="@id/securityA2"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/votingSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Voting"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            android:layout_below="@id/processA3"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/verficiationSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Verification"
+            android:textColor="@color/font"
+            android:textSize="20sp"
+            android:layout_below="@id/votingSubTitle"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/securityQ1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaDifferentQ"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/securitySubTitle"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/securityA1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaDifferentA"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/securityQ1"/>
+
+        <TextView
+            android:id="@+id/securityQ2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaPropertiesQ"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/securityA1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/securityA2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaPropertiesA"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/securityQ2"/>
+
+        <TextView
+            android:id="@+id/processQ1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaStepsQ"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processSubTitle"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/processA1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaStepsA"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processQ1"/>
+
+        <TextView
+            android:id="@+id/processQ2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaStatesQ"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processA1"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/processA2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/ecclesiaStatesA"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processQ2"/>
+
+        <TextView
+            android:id="@+id/processQ3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/whyRegisteredQ"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processA2"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/processA3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/whyRegisteredA"
+            android:textColor="@color/font"
+            android:textSize="18sp"
+            android:layout_below="@id/processQ3"/>
+
+
+    </RelativeLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemIconTint="@drawable/selector"
+        app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
