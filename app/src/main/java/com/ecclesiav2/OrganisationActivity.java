@@ -90,11 +90,18 @@ public class OrganisationActivity extends AppCompatActivity {
         navView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
                 switch (item.getItemId()){
                     case R.id.organisations:
                         return true;
                     case R.id.elections:
-                        Intent intent = new Intent(OrganisationActivity.this, ElectionActivity.class);
+                        intent = new Intent(OrganisationActivity.this, ElectionActivity.class);
+                        overridePendingTransition(0,0);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        return true;
+                    case R.id.help:
+                        intent = new Intent(OrganisationActivity.this, HelpActivity.class);
                         overridePendingTransition(0,0);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent);
