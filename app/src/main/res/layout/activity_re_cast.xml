@@ -4,11 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReCastActivity">
+    tools:context=".ReCastActivity"
+    android:paddingTop="50dp"
+    android:paddingBottom="50dp"
+    android:paddingRight="35dp"
+    android:paddingLeft="35dp">
 
     <TextView
+        android:id="@+id/titleTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ReCast activity"/>
+        android:text="Vote Not Recorded"
+        android:textColor="@color/font"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/startCastTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTxt"
+        android:layout_marginTop="20dp"
+        android:text="Why"
+        android:textColor="@color/font"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/endCastTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/startCastTxt"
+        android:layout_marginBottom="20dp"
+        android:text="What to do"
+        android:textColor="@color/font"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/questionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/endCastTxt"
+        android:text="Election question"
+        android:textSize="20sp"
+        android:textColor="@color/font"
+        android:textStyle="bold"/>
 
 </RelativeLayout>
