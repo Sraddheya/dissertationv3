@@ -15,4 +15,5 @@
     <color name="inactive">#6B7280</color>
     <color name="blue_light">#7DA0FA</color>
     <color name="blue_dark">#5050B2</color>
+    <color name="link">#3366CC</color>
 </resources>

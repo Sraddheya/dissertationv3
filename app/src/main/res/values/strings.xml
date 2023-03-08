@@ -17,7 +17,7 @@
     <string name="confirmationDialogNormal">Once you cast a vote, you will not be able to change your vote.</string>
     <string name="castedTxt3">You vote has been encrypted and casted. It will take some time for it to be recorded to the blockchain.</string>
     <string name="castedTxt4">Come back later to verify it has been recorded successfully.</string>
-    <string name="castedLearnMore">Learn more.</string>
     <string name="organisationInstruction">Scan an organisations QR code to eligible for their future elections.</string>
     <string name="electionInstruction">Scan an elections QR code to join and be able to vote.</string>
+    <string name="learnMore"><u>Learn more</u></string>
 </resources>

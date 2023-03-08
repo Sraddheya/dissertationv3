@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class VoteCasted extends AppCompatActivity {
     Button endCastBtn;
+    TextView toHelpTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,15 @@ public class VoteCasted extends AppCompatActivity {
 
         TextView optionConfirmation = findViewById(R.id.txt2);
         optionConfirmation.setText("You voted for " + selectedString);
+
+        toHelpTxt = findViewById(R.id.txt5);
+        toHelpTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VoteCasted.this, HelpActivity.class);
+                startActivity(intent);
+            }
+        });
 
         endCastBtn = findViewById(R.id.endCastBtn);
         endCastBtn.setOnClickListener(new View.OnClickListener() {
