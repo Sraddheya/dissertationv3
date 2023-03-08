@@ -26,7 +26,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
     StatusFourTrue statusFourTrue = new StatusFourTrue();
     StatusFourFalse statusFourFalse = new StatusFourFalse();
     StatusFive statusFive = new StatusFive();
-    ResultsPizzaFragment resultsFragment = new ResultsPizzaFragment();
+    ResultsPizzaFragment resultsPizzaFragment = new ResultsPizzaFragment();
     private Election election;
 
     @Override
@@ -105,7 +105,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 break;
             case "Results calculated":
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
-                getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsFragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
         }

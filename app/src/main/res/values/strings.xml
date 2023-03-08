@@ -19,5 +19,6 @@
     <string name="castedTxt4">Come back later to verify it has been recorded successfully.</string>
     <string name="organisationInstruction">Scan an organisations QR code to eligible for their future elections.</string>
     <string name="electionInstruction">Scan an elections QR code to join and be able to vote.</string>
-    <string name="learnMore"><u>Learn more</u></string>
+    <string name="learnMore">Learn more</string>
+    <string name="learnToFix">Learn how to fix this issue</string>
 </resources>
