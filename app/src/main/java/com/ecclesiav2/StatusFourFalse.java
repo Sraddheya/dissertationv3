@@ -1,5 +1,7 @@
 package com.ecclesiav2;
 
+import static android.content.Intent.getIntent;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,11 +20,14 @@ public class StatusFourFalse extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_status_four_false, container, false);
 
+        Election election = getArguments().getParcelable("election");
+
         toHelpTxt = v.findViewById(R.id.learnLink);
         toHelpTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ReCastActivity.class);
+                intent.putExtra("election", election);
                 startActivity(intent);
             }
         });

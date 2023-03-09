@@ -22,15 +22,15 @@
     <string name="learnMore">Learn more</string>
     <string name="learnToFix">Learn how to fix this issue</string>
 
-    <!--    <string name="ecclesiaDifferentQ">What makes E-cclesia different/better than other voting systems?</string>-->
-    <!--    <string name="ecclesiaDifferentA">E-cclesia is the only currently available fully decentralised voting system. For a voting system to be decentralised, this means that everyone involved in the election can take part in counting the votes. This is more secure than centralised voting systems that depend on one party to count all the votes because it is secure against corruption and counting errors. E-cclesia also satisfies more security properties than other available voting systems. </string>-->
-    <!--    <string name="ecclesiaPropertiesQ">What security properties does E-cclesia satisfy? </string>-->
-    <!--    <string name="ecclesiaPropertiesA">\u25CF Correctness: Every honestly cast vote will be counted in the final tally and this result is the same for all parties involved as long as no tampering has occured.-->
-    <!--        \n\u25CF Eligibility: Only eligible voters will be able to vote.-->
-    <!--        \n\u25CF Fairness: No partial result can be learned while the voting period is open. until everyone has cast their vote.-->
-    <!--        \n\u25CF Voter privacy: Voter's identities cannot be linked to their vote.-->
-    <!--        \n\u25CF One voter one vote: Only one vote from every eligible voter will be counted in the final tally.-->
-    <!--        \n\u25CF Verifiability: AnyAny party can be certain that that their vote has been recorded and that all recorded all votes have been counted in the final tally. </string>-->
+        <string name="ecclesiaDifferentQ">What makes E-cclesia different/better than other voting systems?</string>
+        <string name="ecclesiaDifferentA">E-cclesia is the only currently available fully decentralised voting system. For a voting system to be decentralised, this means that everyone involved in the election can take part in counting the votes. This is more secure than centralised voting systems that depend on one party to count all the votes because it is secure against corruption and counting errors. E-cclesia also satisfies more security properties than other available voting systems. </string>
+<!--        <string name="ecclesiaPropertiesQ">What security properties does E-cclesia satisfy? </string>-->
+<!--        <string name="ecclesiaPropertiesA">\u25CF Correctness: Every honestly cast vote will be counted in the final tally and this result is the same for all parties involved as long as no tampering has occurred.-->
+<!--            \n\u25CF Eligibility: Only eligible voters will be able to vote.-->
+<!--            \n\u25CF Fairness: No partial result can be learned while the voting period is open. until everyone has cast their vote.-->
+<!--            \n\u25CF Voter privacy: Voter's identities cannot be linked to their vote.-->
+<!--            \n\u25CF One voter one vote: Only one vote from every eligible voter will be counted in the final tally.-->
+<!--            \n\u25CF Verifiability: Any party can be certain that that their vote has been recorded and that all recorded all votes have been counted in the final tally. </string>-->
     <!--    <string name="ecclesiaStepsQ">What are the steps involved in the E-cclesia voting system for a voter?</string>-->
     <!--    <string name="ecclesiaStepsA">1. Register to the organisations’ electoral roll which will be used in the set up of their elections.that sets up the elections on E-cclesia. The registration invite will be sent through email.-->
     <!--        \n2. Joined the election that will take place on E-cclesia. The joining invite will be sent through email.-->

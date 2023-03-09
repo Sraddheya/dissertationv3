@@ -101,12 +101,17 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded false":
+                Bundle bundle3 = new Bundle();
+                bundle3.putParcelable("election", election);
+                statusFourFalse.setArguments(bundle3);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourFalse).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
-                getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
+                if (election.getElecId().equals("0")){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
+                }
                 startVoteBtn.setVisibility(View.GONE);
                 break;
         }
@@ -172,15 +177,15 @@ public class ElectionInfoActivity extends AppCompatActivity {
         CardView activeTag = findViewById(R.id.activeTag);
         CardView closedTag = findViewById(R.id.closedTag);
 
-        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
-            waitingTag.setVisibility(View.VISIBLE);
-        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
-            closedTag.setVisibility(View.VISIBLE);
-        } else {
-            activeTag.setVisibility(View.VISIBLE);
-        }
-        if (election.getSelectedIndex() > 0){
-            votedTag.setVisibility(View.VISIBLE);
-        }
+//        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
+//            waitingTag.setVisibility(View.VISIBLE);
+//        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
+//            closedTag.setVisibility(View.VISIBLE);
+//        } else {
+//            activeTag.setVisibility(View.VISIBLE);
+//        }
+//        if (election.getSelectedIndex() > 0){
+//            votedTag.setVisibility(View.VISIBLE);
+//        }
     }
 }

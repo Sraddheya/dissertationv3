@@ -70,6 +70,7 @@ public class VoteSelection extends AppCompatActivity {
             intent.putExtra("selectedIndex", selectedIndex);
             intent.putExtra("selectedString", election.getOptions().get(selectedIndex));
             intent.putExtra("elecID", election.getElecId());
+            intent.putExtra("needReCast", election.getNeedReCast());
             startActivity(intent);
         });
 

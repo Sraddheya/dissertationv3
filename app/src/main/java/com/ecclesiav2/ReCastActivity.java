@@ -17,21 +17,21 @@ public class ReCastActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Election election = getIntent().getExtras().getParcelable("election");
+
         Button voteAgainBtn = findViewById(R.id.reCastBtn);
         voteAgainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent emailIntent = new Intent(Intent.ACTION_SEND);
-//                emailIntent.setData(Uri.parse("mailto:"));
-//                emailIntent.setType("text/plain");
-//                emailIntent.putExtra(Intent.EXTRA_EMAIL, "s1908227@ed.ac.uk");
-//                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "TestApp email");
-//                emailIntent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+//                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","s1908227@ed.ac.uk", null));
+//                intent.putExtra(Intent.EXTRA_SUBJECT, "AppTest email");
+//                intent.putExtra(Intent.EXTRA_TEXT, "Hello test");
+//                startActivity(Intent.createChooser(intent, "Choose an Email client :"));
 
-                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","s1908227@ed.ac.uk", null));
-                intent.putExtra(Intent.EXTRA_SUBJECT, "AppTest email");
-                intent.putExtra(Intent.EXTRA_TEXT, "Hello test");
-                startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+                Intent intent = new Intent(ReCastActivity.this, VoteSelection.class);
+                election.setNeedReCast(0);
+                intent.putExtra("elec", election);
+                startActivity(intent);
             }
         });
     }

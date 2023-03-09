@@ -20,8 +20,9 @@ public class Election implements Parcelable {
     private String optionsDescriptions;
     private int selectedIndex;
     private String question;
+    private int needReCast;
 
-    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, String optionsDescriptions) {
+    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, String optionsDescriptions, int needReCast) {
         this.elecId = elecId;
         this.title = title;
         this.orgId = orgId;
@@ -33,6 +34,7 @@ public class Election implements Parcelable {
         this.options = options;
         this.optionsDescriptions = optionsDescriptions;
         selectedIndex = -1;
+        this.needReCast = needReCast;
     }
 
     protected Election(Parcel in) {
@@ -47,6 +49,7 @@ public class Election implements Parcelable {
         options = in.createStringArrayList();
         optionsDescriptions = in.readString();
         selectedIndex = in.readInt();
+        needReCast = in.readInt();
     }
 
     public static final Creator<Election> CREATOR = new Creator<Election>() {
@@ -135,26 +138,49 @@ public class Election implements Parcelable {
 
     public String getStatus() {
         if(this.elecId.equals("0")){
-            status = "Vote recorded false";
-            selectedIndex = 1;
-        }
-
-        if (this.elecId.equals("4")){
-            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 45))){
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02, 7))){
+                status = "Joined";
+            }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02, 8))){
                 if (this.selectedIndex > -1){
                     status = "Vote casted";
                 } else {
                     status = "Voting started";
                 }
             }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02, 9))){
+                if (this.needReCast==1){
+                    status = "Vote recorded false";
+                } else{
+                    status = "Vote recorded true";
+                }
+            }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02, 10))){
+                status = "Results calculated";
+            }
+        }
 
-//            if (this.selectedIndex > -1){
-//                if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 48))){
-//                    status = "Vote recorded true";
-//                } if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 02, 21, 18, 50))){
-//                    status = "Results calculated";
-//                }
-//            }
+        if(this.elecId.equals("1")){
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02,  22))){
+                status = "Joined";
+            }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02,  23))){
+                if (this.selectedIndex > -1){
+                    status = "Vote casted";
+                } else {
+                    status = "Voting started";
+                }
+            }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02,  44))){
+                if (this.needReCast==1){
+                    status = "Vote recorded false";
+                } else{
+                    status = "Vote recorded true";
+                }
+            }
+            if (LocalDateTime.now().isAfter(LocalDateTime.of(2023, 03, 9, 02,  48))){
+                status = "Results calculated";
+            }
         }
         return status;
     }
@@ -171,6 +197,14 @@ public class Election implements Parcelable {
         this.question = question;
     }
 
+    public int getNeedReCast() {
+        return needReCast;
+    }
+
+    public void setNeedReCast(int needReCast) {
+        this.needReCast = needReCast;
+    }
+
     @Override
     public String toString() {
         return "Election{" +
@@ -182,9 +216,10 @@ public class Election implements Parcelable {
                 ", status='" + status + '\'' +
                 ", question='" + question + '\'' +
                 ", description='" + description + '\'' +
-                ", options=" + options +
-                ", optionsDescriptions=" + optionsDescriptions +
-                ", selectedIndex=" + selectedIndex +
+                ", options=" + options + '\'' +
+                ", optionsDescriptions=" + optionsDescriptions + '\'' +
+                ", selectedIndex=" + selectedIndex + '\'' +
+                ", needReCast=" + needReCast +
                 '}';
     }
 
@@ -206,5 +241,6 @@ public class Election implements Parcelable {
         parcel.writeStringList(options);
         parcel.writeString(optionsDescriptions);
         parcel.writeInt(selectedIndex);
+        parcel.writeInt(needReCast);
     }
 }

@@ -76,14 +76,15 @@ public class ElectionAddActivity extends AppCompatActivity {
         options0.add("Mushroom");
         options0.add("Sausage");
 
-        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2016-03-04T11:30", "2016-03-04T11:30", "Joined",
+        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
                 "What is your favourite pizza topping?",
                 "In this election, we want to find out what your favourite pizza topping is.",
                 options0,
                 "\u25CF None: No toppings, only standard tomato base and cheese on top.\n" +
                         "\u25CF Pepperoni: An American variety of spicy salami made from cured pork and beef seasoned with paprika or other chili pepper.\n" +
                         "\u25CF Mushroom: A fleshy, spore-bearing fruiting body of a fungus, typically produced above ground, on soil, or on its food source\n" +
-                        "\u25CF Sausage: A meat product usually made from ground meat—often pork, beef, or poultry—along with salt, spices and other flavourings.\n"));
+                        "\u25CF Sausage: A meat product usually made from ground meat—often pork, beef, or poultry—along with salt, spices and other flavourings.\n",
+                0));
 
         ArrayList<String> options1 = new ArrayList<>();
         options1.add("Water");
@@ -91,13 +92,14 @@ public class ElectionAddActivity extends AppCompatActivity {
         options1.add("Sprite");
         options1.add("Fanta");
 
-        allElections.add(new Election("0", "Favourite drink", "0", "2016-03-04T11:30", "2016-03-04T11:30", "Joined",
+        allElections.add(new Election("1", "Favourite drink", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
                 "What is your favourite drink?",
                 "In this election, we want to find out what your favourite drink is.",
                 options1,
                 "\u25CF Water: Unflavoured still water.\n" +
                         "\u25CF Coke: A brand of fizzy drink.\n" +
                         "\u25CF Sprite: A brand of fizzy drink.\n" +
-                        "\u25CF Fanta: A brand of fizzy drink."));
+                        "\u25CF Fanta: A brand of fizzy drink.",
+                1));
     }
 }
