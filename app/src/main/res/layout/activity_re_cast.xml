@@ -20,33 +20,37 @@
         android:layout_marginBottom="20dp"/>
 
     <TextView
-        android:id="@+id/startCastTxt"
+        android:id="@+id/problemTxt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTxt"
         android:layout_marginTop="20dp"
-        android:text="Why"
+        android:text="@string/whyVoteProblemA"
         android:textColor="@color/font"
-        android:textSize="20sp" />
+        android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/endCastTxt"
+        android:id="@+id/problemTxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/startCastTxt"
-        android:layout_marginBottom="20dp"
-        android:text="What to do"
+        android:layout_below="@id/problemTxt1"
+        android:layout_marginTop="20dp"
+        android:text="@string/solveProblem"
         android:textColor="@color/font"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        android:textStyle="italic"/>
 
-    <TextView
-        android:id="@+id/questionTxt"
+    <Button
+        android:id="@+id/reCastBtn"
+        style="@style/Widget.Material3.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/endCastTxt"
-        android:text="Election question"
-        android:textSize="20sp"
-        android:textColor="@color/font"
-        android:textStyle="bold"/>
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/blue_dark"
+        android:text="Vote again"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

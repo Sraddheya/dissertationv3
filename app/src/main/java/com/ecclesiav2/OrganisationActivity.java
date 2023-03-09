@@ -36,6 +36,9 @@ public class OrganisationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_organisation);
 
+        //Welcome slides
+        startWelcome();
+
         //Load current registered organisations
         loadOrganisations();
 
@@ -110,6 +113,17 @@ public class OrganisationActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void startWelcome() {
+        SharedPreferences firstTime = getSharedPreferences("firstTime", 0);
+        if (firstTime.getBoolean("firstTime", true)) {
+            Intent intent = new Intent(OrganisationActivity.this, Welcome0Activity.class);
+            overridePendingTransition(0,0);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
+            firstTime.edit().putBoolean("firstTime", false).commit();
+        }
     }
 
     private void showInstructions() {
