@@ -110,6 +110,9 @@ public class ElectionInfoActivity extends AppCompatActivity {
             case "Results calculated":
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
                 if (election.getElecId().equals("0")){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();
+                }
+                if (election.getElecId().equals("1")){
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
                 }
                 startVoteBtn.setVisibility(View.GONE);
@@ -177,15 +180,15 @@ public class ElectionInfoActivity extends AppCompatActivity {
         CardView activeTag = findViewById(R.id.activeTag);
         CardView closedTag = findViewById(R.id.closedTag);
 
-//        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
-//            waitingTag.setVisibility(View.VISIBLE);
-//        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
-//            closedTag.setVisibility(View.VISIBLE);
-//        } else {
-//            activeTag.setVisibility(View.VISIBLE);
-//        }
-//        if (election.getSelectedIndex() > 0){
-//            votedTag.setVisibility(View.VISIBLE);
-//        }
+        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast().replace(" ", "T")))){
+            waitingTag.setVisibility(View.VISIBLE);
+        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast().replace(" ", "T")))){
+            closedTag.setVisibility(View.VISIBLE);
+        } else {
+            activeTag.setVisibility(View.VISIBLE);
+        }
+        if (election.getSelectedIndex() > 0){
+            votedTag.setVisibility(View.VISIBLE);
+        }
     }
 }

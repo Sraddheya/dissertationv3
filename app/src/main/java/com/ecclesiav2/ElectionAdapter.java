@@ -39,18 +39,18 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
         holder.electionTitle.setText(election.getTitle());
         holder.startTime.setText("Voting starts at: " + election.getStartCast());
         holder.endTime.setText("Voting ends at: " + election.getEndCast());
-//
-//        //Set tags
-//        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast()))){
-//            holder.waitingTag.setVisibility(View.VISIBLE);
-//        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast()))){
-//            holder.closedTag.setVisibility(View.VISIBLE);
-//        } else {
-//            holder.activeTag.setVisibility(View.VISIBLE);
-//        }
-//        if (election.getSelectedIndex() > 0){
-//            holder.votedTag.setVisibility(View.VISIBLE);
-//        }
+
+        //Set tags
+        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast().replace(" ", "T")))){
+            holder.waitingTag.setVisibility(View.VISIBLE);
+        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast().replace(" ", "T")))){
+            holder.closedTag.setVisibility(View.VISIBLE);
+        } else {
+            holder.activeTag.setVisibility(View.VISIBLE);
+        }
+        if (election.getSelectedIndex() > 0){
+            holder.votedTag.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
