@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -32,6 +33,12 @@ public class ResultsPizzaFragment extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_pizza_results, container, false);
 
+        Election election = getArguments().getParcelable("election");
+        TextView elecQuestion = v.findViewById(R.id.elecQuestion);
+        elecQuestion.setText(election.getQuestion());
+        TextView elecSelected = v.findViewById(R.id.selectedOption);
+        elecSelected.setText("You voted for " + election.getOptions().get(election.getSelectedIndex()));
+
         pieChart = v.findViewById(R.id.chart);
         setupPieChart();
         loadPieChart();
@@ -49,10 +56,10 @@ public class ResultsPizzaFragment extends Fragment {
 
     private void loadPieChart(){
         ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(0.5f, "Pepperoni"));
         entries.add(new PieEntry(0.25f, "None"));
-        entries.add(new PieEntry(0.125f, "No vote"));
+        entries.add(new PieEntry(0.5f, "Pepperoni"));
         entries.add(new PieEntry(0.125f, "Mushroom"));
+        entries.add(new PieEntry(0.125f, "Sausage"));
 
         ArrayList<Integer> colors = new ArrayList<>();
         for (int color: PIE_COLORS){

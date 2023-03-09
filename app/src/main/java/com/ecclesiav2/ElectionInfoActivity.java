@@ -108,11 +108,16 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
+                Bundle bundle4 = new Bundle();
+                bundle4.putParcelable("election", election);
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
                 if (election.getElecId().equals("0")){
+                    resultsPizzaFragment.setArguments(bundle4);
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();
                 }
                 if (election.getElecId().equals("1")){
+                    resultsDrinkFragment.setArguments(bundle4);
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
                 }
                 startVoteBtn.setVisibility(View.GONE);
