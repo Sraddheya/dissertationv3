@@ -44,20 +44,20 @@
 
     </RelativeLayout>
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/orgSearchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pageTitle"
-        android:layout_marginTop="10dp"
-        app:iconifiedByDefault="false"
-        app:queryHint="Search here..." />
+<!--    <androidx.appcompat.widget.SearchView-->
+<!--        android:id="@+id/orgSearchView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/pageTitle"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        app:iconifiedByDefault="false"-->
+<!--        app:queryHint="Search here..." />-->
 
     <TextView
         android:id="@+id/orgInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/orgSearchView"
+        android:layout_below="@+id/pageTitle"
         android:layout_centerInParent="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"

@@ -72,20 +72,20 @@ public class OrganisationActivity extends AppCompatActivity {
         });
 
         //SEARCH VIEW
-        orgSearchView = findViewById(R.id.orgSearchView);
-        orgSearchView.clearFocus();
-        orgSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                filterList(newText);
-                return true;
-            }
-        });
+//        orgSearchView = findViewById(R.id.orgSearchView);
+//        orgSearchView.clearFocus();
+//        orgSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                filterList(newText);
+//                return true;
+//            }
+//        });
 
         //Bottom navigation view
         navView = findViewById(R.id.bottomNav);
