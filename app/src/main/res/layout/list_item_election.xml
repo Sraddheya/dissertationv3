@@ -8,6 +8,7 @@
     android:paddingBottom="8dp">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -98,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:visibility="gone"
-                    app:cardBackgroundColor="@color/no"
+                    app:cardBackgroundColor="@color/inactive"
                     app:cardCornerRadius="15dp">
 
                     <TextView

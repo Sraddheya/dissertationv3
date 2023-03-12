@@ -1,6 +1,8 @@
 package com.ecclesiav2;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,15 +43,23 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
         holder.endTime.setText("Voting ends at: " + election.getEndCast());
 
         //Set tags
-        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast().replace(" ", "T")))){
+        if (election.getStatus().equals("Joined")){
             holder.waitingTag.setVisibility(View.VISIBLE);
-        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast().replace(" ", "T")))){
+        } else if (election.getStatus().equals("Results calculated")){
             holder.closedTag.setVisibility(View.VISIBLE);
         } else {
             holder.activeTag.setVisibility(View.VISIBLE);
         }
+
         if (election.getSelectedIndex() > 0){
             holder.votedTag.setVisibility(View.VISIBLE);
+            if (election.getNeedReCast() == 1){
+                holder.card_layout.setCardBackgroundColor(Color.parseColor("#E05A47"));
+            }
+            if (election.getNeedReCast() == 0){
+                holder.card_layout.setCardBackgroundColor(Color.parseColor("#7DA0FA"));
+            }
+            Log.d("color", "hello");
         }
     }
 
@@ -70,11 +80,13 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private TextView electionTitle, startTime, endTime;
-        private CardView waitingTag, votedTag, activeTag, closedTag;
+        private CardView card_layout, waitingTag, votedTag, activeTag, closedTag;
         private RelativeLayout parent;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            card_layout = itemView.findViewById(R.id.card_layout);
+
             electionTitle = itemView.findViewById(R.id.electionTitle);
             startTime = itemView.findViewById(R.id.startTime);
             endTime = itemView.findViewById(R.id.endTime);

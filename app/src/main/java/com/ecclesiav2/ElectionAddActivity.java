@@ -76,7 +76,7 @@ public class ElectionAddActivity extends AppCompatActivity {
         options0.add("Mushroom");
         options0.add("Sausage");
 
-        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
+        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2023-03-12 22:04", "2023-03-12 22:07", "Joined",
                 "What is your favourite pizza topping?",
                 "In this election, we want to find out what your favourite pizza topping is.",
                 options0,
@@ -92,7 +92,17 @@ public class ElectionAddActivity extends AppCompatActivity {
         options1.add("Sprite");
         options1.add("Fanta");
 
-        allElections.add(new Election("1", "Favourite drink", "0", "2016-03-04 11:30", "2016-03-04 11:30", "Joined",
+        allElections.add(new Election("1", "Favourite drink", "0", "2023-03-09 11:51", "2023-03-09 12:00", "Joined",
+                "What is your favourite drink?",
+                "In this election, we want to find out what your favourite drink is.",
+                options1,
+                "\u25CF Water: Unflavoured still water.\n" +
+                        "\u25CF Coke: A brand of fizzy drink.\n" +
+                        "\u25CF Sprite: A brand of fizzy drink.\n" +
+                        "\u25CF Fanta: A brand of fizzy drink.",
+                1));
+
+        allElections.add(new Election("2", "Test", "0", "2023-03-09 11:47", "2023-03-09 12:00", "Joined",
                 "What is your favourite drink?",
                 "In this election, we want to find out what your favourite drink is.",
                 options1,
