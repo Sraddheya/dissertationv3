@@ -44,13 +44,15 @@ public class ElectionActivity extends AppCompatActivity {
         //Update to selected vote
         if (getIntent().hasExtra("selectedIndex")){
             int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
-            int needReCast = getIntent().getIntExtra("needReCast", 0);
             String elecID = getIntent().getStringExtra("elecID");
             for (Election e : registeredElections){
                 if (e.getElecId().equals(elecID)){
                     e.setSelectedIndex(selectedIndex);
-                    e.setNeedReCast(needReCast);
                     //e.setStatus("Vote casted");
+                    if (getIntent().hasExtra("needReCast")){
+                        int needReCast = getIntent().getIntExtra("needReCast", 0);
+                        e.setNeedReCast(needReCast);
+                    }
                 }
             }
             saveElections();

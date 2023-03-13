@@ -53,10 +53,10 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
 
         if (election.getSelectedIndex() > 0){
             holder.votedTag.setVisibility(View.VISIBLE);
-            if (election.getNeedReCast() == 1){
+            if (election.getStatus().equals("Vote recorded false")){
                 holder.card_layout.setCardBackgroundColor(Color.parseColor("#E05A47"));
             }
-            if (election.getNeedReCast() == 0){
+            if (election.getStatus().equals("Vote recorded true")){
                 holder.card_layout.setCardBackgroundColor(Color.parseColor("#7DA0FA"));
             }
             Log.d("color", "hello");

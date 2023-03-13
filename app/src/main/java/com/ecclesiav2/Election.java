@@ -142,51 +142,74 @@ public class Election implements Parcelable {
     public String getStatus() {
         LocalDateTime tempStartCast = LocalDateTime.parse(startCast.replace(" ", "T"));
         LocalDateTime tempEndCast = LocalDateTime.parse(endCast.replace(" ", "T"));
-        if(this.elecId.equals("0")){
-            if (LocalDateTime.now().isBefore(tempStartCast)){
-                status = "Joined";
+
+
+        if (LocalDateTime.now().isBefore(tempStartCast)){
+            status = "Joined";
+        }
+        if (LocalDateTime.now().isAfter(tempStartCast)){
+            if (this.selectedIndex > -1){
+                status = "Vote casted";
+            } else {
+                status = "Voting started";
             }
-            if (LocalDateTime.now().isAfter(tempStartCast)){
-                if (this.selectedIndex > -1){
-                    status = "Vote casted";
-                } else {
-                    status = "Voting started";
-                }
+        }
+        if (LocalDateTime.now().isAfter(tempStartCast.plusHours(1))){
+            if (this.needReCast==1){
+                status = "Vote recorded false";
+            } else{
+                status = "Vote recorded true";
             }
-            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(2))){
-                if (this.needReCast==1){
-                    status = "Vote recorded false";
-                } else{
-                    status = "Vote recorded true";
-                }
-            }
-            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
-                status = "Results calculated";
-            }
+        }
+        if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(20))){
+            status = "Results calculated";
         }
 
-        if(this.elecId.equals("1")){
-            if (LocalDateTime.now().isBefore(tempStartCast)){
-                status = "Joined";
-            }
-            if (LocalDateTime.now().isAfter(tempStartCast)){
-                if (this.selectedIndex > -1){
-                    status = "Vote casted";
-                } else {
-                    status = "Voting started";
-                }
-            }
-            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(2))){
-                if (this.needReCast==1){
-                    status = "Vote recorded false";
-                } else{
-                    status = "Vote recorded true";
-                }
-            }
-            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
-                status = "Results calculated";
-            }
-        }
+//        if(this.elecId.equals("0")){
+//            if (LocalDateTime.now().isBefore(tempStartCast)){
+//                status = "Joined";
+//            }
+//            if (LocalDateTime.now().isAfter(tempStartCast)){
+//                if (this.selectedIndex > -1){
+//                    status = "Vote casted";
+//                } else {
+//                    status = "Voting started";
+//                }
+//            }
+//            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
+//                if (this.needReCast==1){
+//                    status = "Vote recorded false";
+//                } else{
+//                    status = "Vote recorded true";
+//                }
+//            }
+//            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
+//                status = "Results calculated";
+//            }
+//        }
+//
+//        if(this.elecId.equals("1")){
+//            if (LocalDateTime.now().isBefore(tempStartCast)){
+//                status = "Joined";
+//            }
+//            if (LocalDateTime.now().isAfter(tempStartCast)){
+//                if (this.selectedIndex > -1){
+//                    status = "Vote casted";
+//                } else {
+//                    status = "Voting started";
+//                }
+//            }
+//            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
+//                if (this.needReCast==1){
+//                    status = "Vote recorded false";
+//                } else{
+//                    status = "Vote recorded true";
+//                }
+//            }
+//            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
+//                status = "Results calculated";
+//            }
+//        }
         return status;
     }
 
