@@ -78,7 +78,7 @@ public class ElectionAddActivity extends AppCompatActivity {
         options0.add("Mushroom");
         options0.add("Sausage");
 
-        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2023-03-14 00:02", "2023-03-14 00:04", "Joined",
+        allElections.add(new Election("0", "Favourite Pizza Toppings", "0", "2023-03-14 00:25", "2023-03-14 00:30", "Joined",
                 "What is your favourite pizza topping?",
                 "In this election, we want to find out what your favourite pizza topping is.",
                 options0,
@@ -94,7 +94,7 @@ public class ElectionAddActivity extends AppCompatActivity {
         options1.add("Sprite");
         options1.add("Fanta");
 
-        allElections.add(new Election("1", "Favourite drink", "0", "2023-03-14 00:02", "2023-03-14 00:04", "Joined",
+        allElections.add(new Election("1", "Favourite drink", "0", "2023-03-14 00:25", "2023-03-14 00:30", "Joined",
                 "What is your favourite drink?",
                 "In this election, we want to find out what your favourite drink is.",
                 options1,

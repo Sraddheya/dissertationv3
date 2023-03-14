@@ -39,19 +39,9 @@ public class ElectionActivity extends AppCompatActivity {
         if (getIntent().hasExtra("Election")){
             Election election = getIntent().getParcelableExtra("Election");
             if (getIntent().hasExtra("reCasted")){
-//                for (Election e : registeredElections) {
-////                    if (e.getElecId().equals(election.getElecId())) {
-////                        e = election;
-////                        Log.d("infoAcitvity1", e.toString());
-////                        Log.d("infoAcitvity2", election.toString());
-////                    }
-//                    if ()
-//                }
                 for (int i = 0; i < registeredElections.size(); i++ ){
                     if (registeredElections.get(i).getElecId().equals(election.getElecId())) {
                         registeredElections.set(i, election);
-                        Log.d("infoAcitvity1", registeredElections.get(i).toString());
-                        Log.d("infoAcitvity2", election.toString());
                     }
                 }
             } else {

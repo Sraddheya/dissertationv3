@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class VoteCasted extends AppCompatActivity {
     Button endCastBtn;
     TextView toHelpTxt;
@@ -40,6 +43,10 @@ public class VoteCasted extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(VoteCasted.this, ElectionActivity.class);
+                LocalDateTime now = LocalDateTime.now();
+
+                election.setCastTime(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+                election.setRecordedTime(now.plusMinutes(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
                 intent.putExtra("Election", election);
                 intent.putExtra("reCasted", true);
                 startActivity(intent);

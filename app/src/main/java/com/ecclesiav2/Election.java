@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Election implements Parcelable {
@@ -41,7 +42,7 @@ public class Election implements Parcelable {
         this.joinedTime = joinedTime;
         this.castTime = endTime;
         this.recordedTime = endTime;
-        this.calculatedTime = endTime;
+        this.calculatedTime = LocalDateTime.parse(endTime.replace(" ", "T")).plusMinutes(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
     }
 
     protected Election(Parcel in) {
@@ -148,56 +149,30 @@ public class Election implements Parcelable {
     }
 
     public String getStatus() {
-//        LocalDateTime tempStartCast = LocalDateTime.parse(startTime.replace(" ", "T"));
-//        LocalDateTime tempEndCast = LocalDateTime.parse(endTime.replace(" ", "T"));
-//
-//
-//        if (LocalDateTime.now().isBefore(tempStartCast)){
-//            status = "Joined";
-//        }
-//        if (LocalDateTime.now().isAfter(tempStartCast)){
-//            if (this.selectedIndex > -1){
-//                status = "Vote casted";
-//            } else {
-//                status = "Voting started";
-//            }
-//        }
-//        if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
-//            if (this.needReCast==1){
-//                status = "Vote recorded false";
-//            } else{
-//                status = "Vote recorded true";
-//            }
-//        }
-//        if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(20))){
-//            status = "Results calculated";
-//        }
-
-        LocalDateTime joinLDT = LocalDateTime.parse(joinedTime.replace(" ", "T"));
+        LocalDateTime joinedLDT = LocalDateTime.parse(joinedTime.replace(" ", "T"));
         LocalDateTime startLDT = LocalDateTime.parse(startTime.replace(" ", "T"));
         LocalDateTime endLDT = LocalDateTime.parse(endTime.replace(" ", "T"));
         LocalDateTime castLDT = LocalDateTime.parse(castTime.replace(" ", "T"));
         LocalDateTime recordedLDT = LocalDateTime.parse(recordedTime.replace(" ", "T"));
-        LocalDateTime resultsLDT = LocalDateTime.parse(calculatedTime.replace(" ", "T"));
+        LocalDateTime calculatedLDT = LocalDateTime.parse(calculatedTime.replace(" ", "T"));
 
         if (LocalDateTime.now().isBefore(startLDT)){
             status = "Joined";
         }
         if (LocalDateTime.now().isAfter(startLDT)){
-            if (this.selectedIndex > -1){
-                status = "Vote casted";
-            } else {
-                status = "Voting started";
-            }
+            status = "Voting started";
         }
-        if (LocalDateTime.now().isAfter(startLDT.plusMinutes(1))){
+        if (LocalDateTime.now().isAfter(castLDT)){
+            status = "Vote casted";
+        }
+        if (LocalDateTime.now().isAfter(recordedLDT)){
             if (this.needReCast==1){
                 status = "Vote recorded false";
             } else{
                 status = "Vote recorded true";
             }
         }
-        if (LocalDateTime.now().isAfter(endLDT.plusMinutes(1))){
+        if (LocalDateTime.now().isAfter(calculatedLDT)){
             status = "Results calculated";
         }
         return status;
