@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -39,6 +40,7 @@ public class VoteSelection extends AppCompatActivity {
         rgp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                i = i % election.getOptions().size();
                 selectedIndex = i-1;
             }
         });
@@ -67,10 +69,8 @@ public class VoteSelection extends AppCompatActivity {
 
         mView.findViewById(R.id.castBtn).setOnClickListener(v -> {
             Intent intent = new Intent(VoteSelection.this, VoteCasted.class);
-            intent.putExtra("selectedIndex", selectedIndex);
-            intent.putExtra("selectedString", election.getOptions().get(selectedIndex));
-            intent.putExtra("elecID", election.getElecId());
-            intent.putExtra("needReCast", election.getNeedReCast());
+            election.setSelectedIndex(selectedIndex);
+            intent.putExtra("election", election);
             startActivity(intent);
         });
 

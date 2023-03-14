@@ -12,8 +12,8 @@ public class Election implements Parcelable {
     private String elecId;
     private String title;
     private String orgId;
-    private String startCast;
-    private String endCast;
+    private String startTime;
+    private String endTime;
     private String status;
     private String description;
     private ArrayList<String> options;
@@ -21,14 +21,15 @@ public class Election implements Parcelable {
     private int selectedIndex;
     private String question;
     private int needReCast;
-    private String castTime;
+    private String joinedTime, castTime, recordedTime, calculatedTime;
 
-    public Election(String elecId, String title, String orgId, String startCast, String endCast, String status, String question, String description, ArrayList<String> options, String optionsDescriptions, int needReCast) {
+
+    public Election(String elecId, String title, String orgId, String startTime, String endTime, String status, String question, String description, ArrayList<String> options, String optionsDescriptions, int needReCast, String joinedTime) {
         this.elecId = elecId;
         this.title = title;
         this.orgId = orgId;
-        this.startCast = startCast;
-        this.endCast = endCast;
+        this.startTime = startTime;
+        this.endTime = endTime;
         this.status = status;
         this.question = question;
         this.description = description;
@@ -36,15 +37,19 @@ public class Election implements Parcelable {
         this.optionsDescriptions = optionsDescriptions;
         selectedIndex = -1;
         this.needReCast = needReCast;
-        this.castTime = "";
+
+        this.joinedTime = joinedTime;
+        this.castTime = endTime;
+        this.recordedTime = endTime;
+        this.calculatedTime = endTime;
     }
 
     protected Election(Parcel in) {
         elecId = in.readString();
         title = in.readString();
         orgId = in.readString();
-        startCast = in.readString();
-        endCast = in.readString();
+        startTime = in.readString();
+        endTime = in.readString();
         status = in.readString();
         question = in.readString();
         description = in.readString();
@@ -53,6 +58,9 @@ public class Election implements Parcelable {
         selectedIndex = in.readInt();
         needReCast = in.readInt();
         castTime = in.readString();
+        joinedTime = in.readString();
+        recordedTime = in.readString();
+        calculatedTime = in.readString();
     }
 
     public static final Creator<Election> CREATOR = new Creator<Election>() {
@@ -91,20 +99,20 @@ public class Election implements Parcelable {
         this.orgId = orgId;
     }
 
-    public String getStartCast() {
-        return startCast;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStartCast(String startCast) {
-        this.startCast = startCast;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getEndCast() {
-        return endCast;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEndCast(String endCast) {
-        this.endCast = endCast;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getDescription() {
@@ -140,76 +148,58 @@ public class Election implements Parcelable {
     }
 
     public String getStatus() {
-        LocalDateTime tempStartCast = LocalDateTime.parse(startCast.replace(" ", "T"));
-        LocalDateTime tempEndCast = LocalDateTime.parse(endCast.replace(" ", "T"));
+//        LocalDateTime tempStartCast = LocalDateTime.parse(startTime.replace(" ", "T"));
+//        LocalDateTime tempEndCast = LocalDateTime.parse(endTime.replace(" ", "T"));
+//
+//
+//        if (LocalDateTime.now().isBefore(tempStartCast)){
+//            status = "Joined";
+//        }
+//        if (LocalDateTime.now().isAfter(tempStartCast)){
+//            if (this.selectedIndex > -1){
+//                status = "Vote casted";
+//            } else {
+//                status = "Voting started";
+//            }
+//        }
+//        if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
+//            if (this.needReCast==1){
+//                status = "Vote recorded false";
+//            } else{
+//                status = "Vote recorded true";
+//            }
+//        }
+//        if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(20))){
+//            status = "Results calculated";
+//        }
 
+        LocalDateTime joinLDT = LocalDateTime.parse(joinedTime.replace(" ", "T"));
+        LocalDateTime startLDT = LocalDateTime.parse(startTime.replace(" ", "T"));
+        LocalDateTime endLDT = LocalDateTime.parse(endTime.replace(" ", "T"));
+        LocalDateTime castLDT = LocalDateTime.parse(castTime.replace(" ", "T"));
+        LocalDateTime recordedLDT = LocalDateTime.parse(recordedTime.replace(" ", "T"));
+        LocalDateTime resultsLDT = LocalDateTime.parse(calculatedTime.replace(" ", "T"));
 
-        if (LocalDateTime.now().isBefore(tempStartCast)){
+        if (LocalDateTime.now().isBefore(startLDT)){
             status = "Joined";
         }
-        if (LocalDateTime.now().isAfter(tempStartCast)){
+        if (LocalDateTime.now().isAfter(startLDT)){
             if (this.selectedIndex > -1){
                 status = "Vote casted";
             } else {
                 status = "Voting started";
             }
         }
-        if (LocalDateTime.now().isAfter(tempStartCast.plusHours(1))){
+        if (LocalDateTime.now().isAfter(startLDT.plusMinutes(1))){
             if (this.needReCast==1){
                 status = "Vote recorded false";
             } else{
                 status = "Vote recorded true";
             }
         }
-        if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(20))){
+        if (LocalDateTime.now().isAfter(endLDT.plusMinutes(1))){
             status = "Results calculated";
         }
-
-//        if(this.elecId.equals("0")){
-//            if (LocalDateTime.now().isBefore(tempStartCast)){
-//                status = "Joined";
-//            }
-//            if (LocalDateTime.now().isAfter(tempStartCast)){
-//                if (this.selectedIndex > -1){
-//                    status = "Vote casted";
-//                } else {
-//                    status = "Voting started";
-//                }
-//            }
-//            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
-//                if (this.needReCast==1){
-//                    status = "Vote recorded false";
-//                } else{
-//                    status = "Vote recorded true";
-//                }
-//            }
-//            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
-//                status = "Results calculated";
-//            }
-//        }
-//
-//        if(this.elecId.equals("1")){
-//            if (LocalDateTime.now().isBefore(tempStartCast)){
-//                status = "Joined";
-//            }
-//            if (LocalDateTime.now().isAfter(tempStartCast)){
-//                if (this.selectedIndex > -1){
-//                    status = "Vote casted";
-//                } else {
-//                    status = "Voting started";
-//                }
-//            }
-//            if (LocalDateTime.now().isAfter(tempStartCast.plusMinutes(1))){
-//                if (this.needReCast==1){
-//                    status = "Vote recorded false";
-//                } else{
-//                    status = "Vote recorded true";
-//                }
-//            }
-//            if (LocalDateTime.now().isAfter(tempEndCast.plusMinutes(1))){
-//                status = "Results calculated";
-//            }
-//        }
         return status;
     }
 
@@ -233,22 +223,57 @@ public class Election implements Parcelable {
         this.needReCast = needReCast;
     }
 
+    public String getJoinedTime() {
+        return joinedTime;
+    }
+
+    public void setJoinedTime(String joinedTime) {
+        this.joinedTime = joinedTime;
+    }
+
+    public String getCastTime() {
+        return castTime;
+    }
+
+    public void setCastTime(String castTime) {
+        this.castTime = castTime;
+    }
+
+    public String getRecordedTime() {
+        return recordedTime;
+    }
+
+    public void setRecordedTime(String recordedTime) {
+        this.recordedTime = recordedTime;
+    }
+
+    public String getCalculatedTime() {
+        return calculatedTime;
+    }
+
+    public void setCalculatedTime(String calculatedTime) {
+        this.calculatedTime = calculatedTime;
+    }
+
     @Override
     public String toString() {
         return "Election{" +
                 "elecId='" + elecId + '\'' +
                 ", title='" + title + '\'' +
                 ", orgId='" + orgId + '\'' +
-                ", startCast='" + startCast + '\'' +
-                ", endCast='" + endCast + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 ", status='" + status + '\'' +
-                ", question='" + question + '\'' +
                 ", description='" + description + '\'' +
-                ", options=" + options + '\'' +
-                ", optionsDescriptions=" + optionsDescriptions + '\'' +
-                ", selectedIndex=" + selectedIndex + '\'' +
-                ", needReCast=" + needReCast + '\'' +
-                ", castTime=" + castTime +
+                ", options=" + options +
+                ", optionsDescriptions='" + optionsDescriptions + '\'' +
+                ", selectedIndex=" + selectedIndex +
+                ", question='" + question + '\'' +
+                ", needReCast=" + needReCast +
+                ", joinedTime='" + joinedTime + '\'' +
+                ", castTime='" + castTime + '\'' +
+                ", recordedTime='" + recordedTime + '\'' +
+                ", calculatedTime='" + calculatedTime + '\'' +
                 '}';
     }
 
@@ -262,8 +287,8 @@ public class Election implements Parcelable {
         parcel.writeString(elecId);
         parcel.writeString(title);
         parcel.writeString(orgId);
-        parcel.writeString(startCast);
-        parcel.writeString(endCast);
+        parcel.writeString(startTime);
+        parcel.writeString(endTime);
         parcel.writeString(status);
         parcel.writeString(question);
         parcel.writeString(description);
@@ -272,5 +297,8 @@ public class Election implements Parcelable {
         parcel.writeInt(selectedIndex);
         parcel.writeInt(needReCast);
         parcel.writeString(castTime);
+        parcel.writeString(joinedTime);
+        parcel.writeString(recordedTime);
+        parcel.writeString(calculatedTime);
     }
 }

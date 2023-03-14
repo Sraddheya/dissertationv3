@@ -61,7 +61,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
         switch (election.getStatus()){
             case "Joined":
                 Bundle bundle = new Bundle();
-                bundle.putString("startTime", election.getStartCast());
+                bundle.putString("startTime", election.getStartTime());
                 statusOne.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusOne).commit();
 
@@ -171,12 +171,9 @@ public class ElectionInfoActivity extends AppCompatActivity {
         TextView titleTxt = findViewById(R.id.titleTxt);
         titleTxt.setText(election.getTitle());
         TextView startCastTxt = findViewById(R.id.startCastTxt);
-        startCastTxt.setText("Voting starts at: " + election.getStartCast());
+        startCastTxt.setText("Voting starts at: " + election.getStartTime());
         TextView endCastTxt = findViewById(R.id.endCastTxt);
-        endCastTxt.setText("Voting ends at: " + election.getEndCast());
-
-        Log.d("status", election.getStatus());
-        Log.d("selected", Integer.toString(election.getSelectedIndex()));
+        endCastTxt.setText("Voting ends at: " + election.getEndTime());
     }
 
     private void setTags(){
@@ -185,9 +182,9 @@ public class ElectionInfoActivity extends AppCompatActivity {
         CardView activeTag = findViewById(R.id.activeTag);
         CardView closedTag = findViewById(R.id.closedTag);
 
-        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartCast().replace(" ", "T")))){
+        if (LocalDateTime.now().isBefore(LocalDateTime.parse(election.getStartTime().replace(" ", "T")))){
             waitingTag.setVisibility(View.VISIBLE);
-        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndCast().replace(" ", "T")))){
+        } else if (LocalDateTime.now().isAfter(LocalDateTime.parse(election.getEndTime().replace(" ", "T")))){
             closedTag.setVisibility(View.VISIBLE);
         } else {
             activeTag.setVisibility(View.VISIBLE);

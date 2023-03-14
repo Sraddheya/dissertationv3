@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -37,23 +38,24 @@ public class ElectionActivity extends AppCompatActivity {
         //Adding election from ElectionAddActivity
         if (getIntent().hasExtra("Election")){
             Election election = getIntent().getParcelableExtra("Election");
-            registeredElections.add(election);
-            saveElections();
-        }
-
-        //Update to selected vote
-        if (getIntent().hasExtra("selectedIndex")){
-            int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
-            String elecID = getIntent().getStringExtra("elecID");
-            for (Election e : registeredElections){
-                if (e.getElecId().equals(elecID)){
-                    e.setSelectedIndex(selectedIndex);
-                    //e.setStatus("Vote casted");
-                    if (getIntent().hasExtra("needReCast")){
-                        int needReCast = getIntent().getIntExtra("needReCast", 0);
-                        e.setNeedReCast(needReCast);
+            if (getIntent().hasExtra("reCasted")){
+//                for (Election e : registeredElections) {
+////                    if (e.getElecId().equals(election.getElecId())) {
+////                        e = election;
+////                        Log.d("infoAcitvity1", e.toString());
+////                        Log.d("infoAcitvity2", election.toString());
+////                    }
+//                    if ()
+//                }
+                for (int i = 0; i < registeredElections.size(); i++ ){
+                    if (registeredElections.get(i).getElecId().equals(election.getElecId())) {
+                        registeredElections.set(i, election);
+                        Log.d("infoAcitvity1", registeredElections.get(i).toString());
+                        Log.d("infoAcitvity2", election.toString());
                     }
                 }
+            } else {
+                registeredElections.add(election);
             }
             saveElections();
         }

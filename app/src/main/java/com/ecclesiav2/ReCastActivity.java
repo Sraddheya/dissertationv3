@@ -23,11 +23,6 @@ public class ReCastActivity extends AppCompatActivity {
         voteAgainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","s1908227@ed.ac.uk", null));
-//                intent.putExtra(Intent.EXTRA_SUBJECT, "AppTest email");
-//                intent.putExtra(Intent.EXTRA_TEXT, "Hello test");
-//                startActivity(Intent.createChooser(intent, "Choose an Email client :"));
-
                 Intent intent = new Intent(ReCastActivity.this, VoteSelection.class);
                 election.setNeedReCast(0);
                 intent.putExtra("elec", election);

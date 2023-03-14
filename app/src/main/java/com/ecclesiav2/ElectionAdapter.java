@@ -39,28 +39,39 @@ public class ElectionAdapter extends RecyclerView.Adapter<ElectionAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Election election = elections.get(position);
         holder.electionTitle.setText(election.getTitle());
-        holder.startTime.setText("Voting starts at: " + election.getStartCast());
-        holder.endTime.setText("Voting ends at: " + election.getEndCast());
+        holder.startTime.setText("Voting starts at: " + election.getStartTime());
+        holder.endTime.setText("Voting ends at: " + election.getEndTime());
+
+        LocalDateTime joinLDT = LocalDateTime.parse(election.getJoinedTime().replace(" ", "T"));
+        LocalDateTime startLDT = LocalDateTime.parse(election.getStartTime().replace(" ", "T"));
+        LocalDateTime endLDT = LocalDateTime.parse(election.getEndTime().replace(" ", "T"));
+        LocalDateTime castLDT = LocalDateTime.parse(election.getCastTime().replace(" ", "T"));
+        LocalDateTime recordedLDT = LocalDateTime.parse(election.getRecordedTime().replace(" ", "T"));
+        LocalDateTime resultsLDT = LocalDateTime.parse(election.getCalculatedTime().replace(" ", "T"));
 
         //Set tags
-        if (election.getStatus().equals("Joined")){
+        if (LocalDateTime.now().isBefore(startLDT)){
             holder.waitingTag.setVisibility(View.VISIBLE);
-        } else if (election.getStatus().equals("Results calculated")){
-            holder.closedTag.setVisibility(View.VISIBLE);
-        } else {
+        }
+        if (LocalDateTime.now().isAfter(startLDT) && LocalDateTime.now().isBefore(endLDT)){
             holder.activeTag.setVisibility(View.VISIBLE);
         }
-
-        if (election.getSelectedIndex() > 0){
-            holder.votedTag.setVisibility(View.VISIBLE);
-            if (election.getStatus().equals("Vote recorded false")){
-                holder.card_layout.setCardBackgroundColor(Color.parseColor("#E05A47"));
-            }
-            if (election.getStatus().equals("Vote recorded true")){
-                holder.card_layout.setCardBackgroundColor(Color.parseColor("#7DA0FA"));
-            }
-            Log.d("color", "hello");
+        if (LocalDateTime.now().isAfter(endLDT)){
+            holder.closedTag.setVisibility(View.VISIBLE);
         }
+
+//        if (LocalDateTime.now().isAfter(castLDT) && election.getSelectedIndex()>=0){
+        if (election.getSelectedIndex()>=0){
+                holder.votedTag.setVisibility(View.VISIBLE);
+                if (election.getStatus().equals("Vote recorded false")){
+                    holder.card_layout.setCardBackgroundColor(Color.parseColor("#E05A47"));
+                }
+                if (election.getStatus().equals("Vote recorded true")){
+                    holder.card_layout.setCardBackgroundColor(Color.parseColor("#7DA0FA"));
+                }
+            }
+
+        Log.d("info", election.toString());
     }
 
     @Override

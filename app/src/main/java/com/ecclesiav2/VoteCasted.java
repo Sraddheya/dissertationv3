@@ -19,14 +19,12 @@ public class VoteCasted extends AppCompatActivity {
         setContentView(R.layout.activity_vote_casted);
 
         //Back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        int selectedIndex = getIntent().getIntExtra("selectedIndex", 0);
-        String selectedString = getIntent().getStringExtra("selectedString");
-        String elecID = getIntent().getStringExtra("elecID");
+        Election election = getIntent().getExtras().getParcelable("election");
 
         TextView optionConfirmation = findViewById(R.id.txt2);
-        optionConfirmation.setText("You voted for " + selectedString);
+        optionConfirmation.setText("You voted for " + election.getOptions().get(election.getSelectedIndex()));
 
         toHelpTxt = findViewById(R.id.txt5);
         toHelpTxt.setOnClickListener(new View.OnClickListener() {
@@ -42,8 +40,8 @@ public class VoteCasted extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(VoteCasted.this, ElectionActivity.class);
-                intent.putExtra("selectedIndex", selectedIndex);
-                intent.putExtra("elecID", elecID);
+                intent.putExtra("Election", election);
+                intent.putExtra("reCasted", true);
                 startActivity(intent);
             }
         });
