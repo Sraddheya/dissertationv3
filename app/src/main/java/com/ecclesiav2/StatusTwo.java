@@ -14,6 +14,9 @@ public class StatusTwo extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_status_two, container, false);
+
+        Election election = getArguments().getParcelable("election");
+
         return v;
     }
 }

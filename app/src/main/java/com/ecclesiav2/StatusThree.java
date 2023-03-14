@@ -18,6 +18,8 @@ public class StatusThree extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_status_three, container, false);
 
+        Election election = getArguments().getParcelable("election");
+
         toHelpTxt = v.findViewById(R.id.learnLink);
         toHelpTxt.setOnClickListener(new View.OnClickListener() {
             @Override

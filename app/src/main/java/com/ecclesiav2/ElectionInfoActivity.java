@@ -57,11 +57,10 @@ public class ElectionInfoActivity extends AppCompatActivity {
 
         //Begin voting button
         Button startVoteBtn = findViewById(R.id.startVoteBtn);
-
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("election", election);
         switch (election.getStatus()){
             case "Joined":
-                Bundle bundle = new Bundle();
-                bundle.putString("startTime", election.getStartTime());
                 statusOne.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusOne).commit();
 
@@ -76,6 +75,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
 
                 break;
             case "Voting started":
+                statusTwo.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusTwo).commit();
 
                 //Show enabled button
@@ -90,34 +90,28 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 });
                 break;
             case "Vote casted":
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("selectedIndex", election.getSelectedIndex());
-                statusThree.setArguments(bundle2);
+                statusThree.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusThree).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded true":
+                statusFourTrue.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourTrue).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Vote recorded false":
-                Bundle bundle3 = new Bundle();
-                bundle3.putParcelable("election", election);
-                statusFourFalse.setArguments(bundle3);
+                statusFourFalse.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourFalse).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
-                Bundle bundle4 = new Bundle();
-                bundle4.putParcelable("election", election);
-
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
                 if (election.getElecId().equals("0")){
-                    resultsPizzaFragment.setArguments(bundle4);
+                    resultsPizzaFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();
                 }
                 if (election.getElecId().equals("1")){
-                    resultsDrinkFragment.setArguments(bundle4);
+                    resultsDrinkFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
                 }
                 startVoteBtn.setVisibility(View.GONE);

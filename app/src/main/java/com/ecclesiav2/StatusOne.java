@@ -18,12 +18,15 @@ public class StatusOne extends Fragment {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_status_one, container, false);
 
-        //Get startTime
-        startTime = getArguments().getString("startTime");
+        Election election = getArguments().getParcelable("election");
 
-        String infoTxt = "Others are still joining the election, you can join the election at " + startTime + ".";
+        String infoTxt = "Others are still joining the election, you can join the election at " + election.getStartTime() + ".";
         TextView moreInfo = v.findViewById(R.id.moreInfo);
         moreInfo.setText(infoTxt);
+
+        TextView joinedTimeTxt = v.findViewById(R.id.joinedTimeTxt);
+        joinedTimeTxt.setText(election.getJoinedTime());
+
         return v;
     }
 }

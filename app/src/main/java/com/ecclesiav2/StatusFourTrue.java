@@ -14,6 +14,10 @@ public class StatusFourTrue extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status_four_true, container, false);
+        View v = inflater.inflate(R.layout.fragment_status_four_true, container, false);
+
+        Election election = getArguments().getParcelable("election");
+
+        return v;
     }
 }

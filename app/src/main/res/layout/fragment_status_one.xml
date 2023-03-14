@@ -119,6 +119,16 @@
         app:layout_constraintTop_toTopOf="@+id/check1" />
 
     <TextView
+        android:id="@+id/joinedTimeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/font"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/status1"
+        app:layout_constraintStart_toEndOf="@+id/status1"/>
+
+    <TextView
         android:id="@+id/moreInfo"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
