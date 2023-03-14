@@ -22,6 +22,15 @@ public class StatusFourFalse extends Fragment {
 
         Election election = getArguments().getParcelable("election");
 
+        TextView joinedTimeTxt = v.findViewById(R.id.joinedTimeTxt);
+        joinedTimeTxt.setText(election.getJoinedTime());
+        TextView startTimeTxt = v.findViewById(R.id.startTimeTxt);
+        startTimeTxt.setText(election.getStartTime());
+        TextView castTimeTxt = v.findViewById(R.id.castTimeTxt);
+        castTimeTxt.setText(election.getCastTime());
+        TextView recordedTimeTxt = v.findViewById(R.id.recordedTimeTxt);
+        recordedTimeTxt.setText(election.getRecordedTime());
+
         toHelpTxt = v.findViewById(R.id.learnLink);
         toHelpTxt.setOnClickListener(new View.OnClickListener() {
             @Override

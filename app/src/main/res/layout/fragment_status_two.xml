@@ -173,4 +173,24 @@
         app:layout_constraintBottom_toBottomOf="@+id/check5"
         app:layout_constraintStart_toEndOf="@+id/check5" />
 
+    <TextView
+        android:id="@+id/joinedTimeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/font"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/status1"
+        app:layout_constraintStart_toEndOf="@+id/status1"/>
+
+    <TextView
+        android:id="@+id/startTimeTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/font"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/status2"
+        app:layout_constraintStart_toEndOf="@+id/status2"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -105,6 +105,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 startVoteBtn.setVisibility(View.GONE);
                 break;
             case "Results calculated":
+                statusFive.setArguments(bundle);
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
                 if (election.getElecId().equals("0")){
                     resultsPizzaFragment.setArguments(bundle);
