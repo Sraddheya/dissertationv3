@@ -37,7 +37,12 @@ public class ResultsPizzaFragment extends Fragment {
         TextView elecQuestion = v.findViewById(R.id.elecQuestion);
         elecQuestion.setText(election.getQuestion());
         TextView elecSelected = v.findViewById(R.id.selectedOption);
-        elecSelected.setText("You voted for " + election.getOptions().get(election.getSelectedIndex()));
+
+        if (election.getNeedReCast()==0){
+            elecSelected.setText("You voted for " + election.getOptions().get(election.getSelectedIndex()));
+        } else {
+            elecSelected.setText("Your vote could not be recorded");
+        }
 
         pieChart = v.findViewById(R.id.chart);
         setupPieChart();

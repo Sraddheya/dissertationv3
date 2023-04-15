@@ -8,7 +8,7 @@
     android:layout_marginTop="20dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="20dp"
-    tools:context=".StatusFive">
+    tools:context=".StatusFiveTrue">
 
     <ImageView
         android:id="@+id/check1"
@@ -44,10 +44,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:src="@drawable/icon_check_true"
+        android:src="@drawable/icon_check_false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/check3"
-        app:tint="@color/yes" />
+        app:tint="@color/no" />
 
     <ImageView
         android:id="@+id/check5"
@@ -100,7 +100,7 @@
         android:layout_width="30dp"
         android:layout_height="2dp"
         android:progress="100"
-        android:progressTint="@color/yes"
+        android:progressTint="@color/no"
         android:rotation="90"
         app:layout_constraintBottom_toTopOf="@+id/check5"
         app:layout_constraintEnd_toEndOf="@+id/check5"

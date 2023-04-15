@@ -93,7 +93,7 @@
                 android:id="@+id/closedTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/no"
+                app:cardBackgroundColor="@color/inactive"
                 app:cardCornerRadius="15dp"
                 android:visibility="gone">
 

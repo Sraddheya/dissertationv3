@@ -37,7 +37,7 @@ public class OrganisationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_organisation);
 
         //Welcome slides
-        startWelcome();
+        //startWelcome();
 
         //Load current registered organisations
         loadOrganisations();
@@ -71,7 +71,7 @@ public class OrganisationActivity extends AppCompatActivity {
             }
         });
 
-        //SEARCH VIEW
+//        //SEARCH VIEW
 //        orgSearchView = findViewById(R.id.orgSearchView);
 //        orgSearchView.clearFocus();
 //        orgSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

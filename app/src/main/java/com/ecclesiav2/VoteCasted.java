@@ -46,7 +46,7 @@ public class VoteCasted extends AppCompatActivity {
                 LocalDateTime now = LocalDateTime.now();
 
                 election.setCastTime(now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
-                election.setRecordedTime(now.plusHours(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+                election.setRecordedTime(now.plusMinutes(1).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
                 intent.putExtra("Election", election);
                 intent.putExtra("reCasted", true);
                 startActivity(intent);

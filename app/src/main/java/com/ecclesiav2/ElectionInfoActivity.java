@@ -9,7 +9,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -25,7 +24,8 @@ public class ElectionInfoActivity extends AppCompatActivity {
     StatusThree statusThree = new StatusThree();
     StatusFourTrue statusFourTrue = new StatusFourTrue();
     StatusFourFalse statusFourFalse = new StatusFourFalse();
-    StatusFive statusFive = new StatusFive();
+    StatusFiveTrue statusFiveTrue = new StatusFiveTrue();
+    StatusFiveFalse statusFiveFalse = new StatusFiveFalse();
     ResultsPizzaFragment resultsPizzaFragment = new ResultsPizzaFragment();
     ResultsDrinkFragment resultsDrinkFragment = new ResultsDrinkFragment();
     private Election election;
@@ -69,7 +69,7 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 startVoteBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(ElectionInfoActivity.this, "Voting has not begin yet", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ElectionInfoActivity.this, "Voting has not begun yet", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -104,9 +104,22 @@ public class ElectionInfoActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFourFalse).commit();
                 startVoteBtn.setVisibility(View.GONE);
                 break;
-            case "Results calculated":
-                statusFive.setArguments(bundle);
-                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFive).commit();
+            case "Results calculated true":
+                statusFiveTrue.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFiveTrue).commit();
+                if (election.getElecId().equals("0")){
+                    resultsPizzaFragment.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();
+                }
+                if (election.getElecId().equals("1")){
+                    resultsDrinkFragment.setArguments(bundle);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsDrinkFragment).commit();
+                }
+                startVoteBtn.setVisibility(View.GONE);
+                break;
+            case "Results calculated false":
+                statusFiveFalse.setArguments(bundle);
+                getSupportFragmentManager().beginTransaction().replace(R.id.containerStatus, statusFiveFalse).commit();
                 if (election.getElecId().equals("0")){
                     resultsPizzaFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.containerResults, resultsPizzaFragment).commit();

@@ -173,7 +173,12 @@ public class Election implements Parcelable {
             }
         }
         if (LocalDateTime.now().isAfter(calculatedLDT)){
-            status = "Results calculated";
+            if (this.needReCast==1){
+                status = "Results calculated false";
+            } else{
+                status="Results calculated true";
+            }
+
         }
         return status;
     }
